@@ -1,7 +1,7 @@
 # Laboratory Exercise 2 Submission
-Student Name 1:
+Student Name 1: Ron Domingo (rdomingo)
 
-Student Name 2:
+Student Name 2: Michael Lu (mingci7)
 
 ## Part 1
 * Synthesize the example application. Report on the resource utilization and

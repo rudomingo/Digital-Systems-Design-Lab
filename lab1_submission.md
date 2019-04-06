@@ -1,7 +1,7 @@
 # Laboratory Exercise 1 Submission
-Student Name 1:
+Student Name 1: Ron Domingo (rdomingo)
 
-Student Name 2:
+Student Name 2: Michael Lu (mingci7)
 
 ## Part 1
 Please attach your modified app in the \`\`\`scala session.

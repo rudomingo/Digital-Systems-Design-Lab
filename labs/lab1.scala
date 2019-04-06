@@ -9,22 +9,26 @@ import spatial.dsl._
   def main(args: Array[String]): Unit = {
     val N = args(0).to[T]
     val M = args(1).to[T]
+    val L = args(2).to[T]
     val argRegIn0 = ArgIn[T]
     val argRegIn1 = ArgIn[T]
+    val argRegIn2 = ArgIn[T]
     setArg(argRegIn0, N)
     setArg(argRegIn1, M)
+    setArg(argRegIn2, L)
     val argRegOut = ArgOut[T]
 
     Accel {
       val argRegIn0Value = argRegIn0.value
       val argRegIn1Value = argRegIn1.value
-      argRegOut := argRegIn0Value + argRegIn1Value
+      val argRegIn2Value = argRegIn2.value
+      argRegOut := argRegIn0Value + argRegIn1Value + argRegIn2Value
     }
 
     val argRegOutResult = getArg(argRegOut)
     println("Result = " + argRegOutResult)
 
-    val gold = M + N
+    val gold = M + N + L
     println("Gold = " + gold)
     val cksum = gold == argRegOutResult
     println("PASS = " + cksum + "(Lab1Part1RegExample)")

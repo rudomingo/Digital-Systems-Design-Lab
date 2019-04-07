@@ -176,31 +176,43 @@ import spatial.dsl._
 }
 
 
-// // Fold
-// @spatial object Lab1Part6FoldExample extends SpatialApp {
-//   val N = 32
-//   val tileSize = 16
-//   type T = Int
+// Fold
+@spatial object Lab1Part6FoldExample extends SpatialApp {
+  val N = 32
+  val tileSize = 16
+  type T = Int
 
 
-//   def main(args: Array[String]): Unit = {
-//     val arraySize = N
-//     val srcFPGA = DRAM[T](N)
-//     val src = Array.tabulate[Int](arraySize) { i => i % 256 }
-//     setMem(srcFPGA, src)
-//     val destArg = ArgOut[T]
+  def main(args: Array[String]): Unit = {
+    val initial = args(0).to[Int]
+    val arraySize = N
+    val srcFPGA = DRAM[T](N)
+    val src = Array.tabulate[Int](arraySize) { i => i % 256 }
+    setMem(srcFPGA, src)
+    val destArg = ArgOut[T]
 
-//     Accel {
-//       // Your code here
-//     }
+    val x = ArgIn[T]
+    setArg(x, initial)
+    Accel {
+      val accum = Reg[T](0)
+      accum := x
+      Sequential.Fold(accum)(N by tileSize) { i =>
+        val b1 = SRAM[T](tileSize)
+        b1 load srcFPGA(i::i+tileSize)
+        Reduce(0)(tileSize by 1) { ii => b1(ii) }{_+_}
+      }{_+_}
 
-//     val result = getArg(destArg)
-//     val gold = src.reduce{_+_}
-//     println("Gold: " + gold)
-//     println("Result: : " + result)
-//     println("")
 
-//     val cksum = gold == result
-//     println("PASS: " + cksum + "(Lab1Part6FoldExample)")
-//   }
-// }
+      destArg := accum.value
+    }
+
+    val result = getArg(destArg)
+    val gold = src.reduce{_+_} + initial
+    println("Gold: " + gold)
+    println("Result: : " + result)
+    println("")
+
+    val cksum = gold == result
+    println("PASS: " + cksum + "(Lab1Part6FoldExample)")
+  }
+}

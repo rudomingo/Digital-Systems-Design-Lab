@@ -44,6 +44,9 @@ Your answer:
 
 ### Part 2
 * Simulate the app using Scala and VCS simulation. Report on the simulation result. 
+```
+The app runs in 836 cycles and uses a total of 128 bytes for each reading and writing.
+```
 
 * Synthesize the design and run on the FPGA. Report the number of cycles needed for the design. 
 
@@ -58,6 +61,9 @@ Your implementation:
 ```
 
 * Run Scala simulation and VCS simulation. Report the results of VCS simulation.
+```
+The app ran with the same performance compared to the sans FIFO implementation. The simulation ran for 836 cycles and the total read/write bytes is 128.
+```
 
 * Synthesize the design and run it on the board. Report the number of cycles for running the design. 
 

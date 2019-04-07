@@ -89,43 +89,54 @@ import spatial.dsl._
 
 
 // // FIFO
-// @spatial object Lab1Part4FIFOExample extends SpatialApp {
-//   val N = 32
-//   type T = Int
+@spatial object Lab1Part4FIFOExample extends SpatialApp {
+  val N = 32
+  type T = Int
 
-//   def simpleLoadStore(srcHost: Array[T], value: T) = {
-//     val tileSize = 16
-//     val srcFPGA = DRAM[T](N)
-//     val dstFPGA = DRAM[T](N)
-//     setMem(srcFPGA, srcHost)
+  def simpleLoadStore(srcHost: Array[T], value: T) = {
+    val tileSize = 16
+    val srcFPGA = DRAM[T](N)
+    val dstFPGA = DRAM[T](N)
+    setMem(srcFPGA, srcHost)
 
-//     val x = ArgIn[T]
-//     setArg(x, value)
-//     Accel {
-//       // Your code here
-//     }
-//     getMem(dstFPGA)
-//   }
+    val x = ArgIn[T]
+    setArg(x, value)
+    Accel {
+      Sequential.Foreach(N by tileSize) { i =>
+        val b1 = FIFO[T](tileSize)
 
-//   def main(args: Array[String]): Unit = {
-//     val arraySize = N
-//     val value = args(0).to[Int]
+        b1 load srcFPGA(i::i+tileSize)
 
-//     val src = Array.tabulate[Int](arraySize) { i => i % 256 }
-//     val dst = simpleLoadStore(src, value)
+        val b2 = FIFO[T](tileSize)
+        Foreach(tileSize by 1) { ii =>
+          b2.enq(b1.deq() * x)
+        }
 
-//     val gold = src.map { _ * value }
+        dstFPGA(i::i+tileSize) store b2
+      }
+    }
+    getMem(dstFPGA)
+  }
 
-//     println("Sent in: ")
-//     (0 until arraySize) foreach { i => print(gold(i) + " ") }
-//     println("Got out: ")
-//     (0 until arraySize) foreach { i => print(dst(i) + " ") }
-//     println("")
+  def main(args: Array[String]): Unit = {
+    val arraySize = N
+    val value = args(0).to[Int]
 
-//     val cksum = dst.zip(gold){_ == _}.reduce{_&&_}
-//     println("PASS: " + cksum + "(Lab1Part4FIFOExample)")
-//   }
-// }
+    val src = Array.tabulate[Int](arraySize) { i => i % 256 }
+    val dst = simpleLoadStore(src, value)
+
+    val gold = src.map { _ * value }
+
+    println("Sent in: ")
+    (0 until arraySize) foreach { i => print(gold(i) + " ") }
+    println("Got out: ")
+    (0 until arraySize) foreach { i => print(dst(i) + " ") }
+    println("")
+
+    val cksum = dst.zip(gold){_ == _}.reduce{_&&_}
+    println("PASS: " + cksum + "(Lab1Part4FIFOExample)")
+  }
+}
 
 
 // Reduce

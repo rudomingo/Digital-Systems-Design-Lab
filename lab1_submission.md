@@ -57,7 +57,55 @@ The app runs in 836 cycles and uses a total of 128 bytes for each reading and wr
 * Reimplement the example in Part 2 using FIFO / FILO. You can leave your implementation under Lab1Part4FIFOExample and Lab1Part5FILOExample. 
 Your implementation: 
 ```scala
-// Copy-paste your implementation here
+// FIFO
+@spatial object Lab1Part4FIFOExample extends SpatialApp {
+  val N = 32
+  type T = Int
+
+  def simpleLoadStore(srcHost: Array[T], value: T) = {
+    val tileSize = 16
+    val srcFPGA = DRAM[T](N)
+    val dstFPGA = DRAM[T](N)
+    setMem(srcFPGA, srcHost)
+
+    val x = ArgIn[T]
+    setArg(x, value)
+    Accel {
+      Sequential.Foreach(N by tileSize) { i =>
+        val b1 = FIFO[T](tileSize)
+
+        b1 load srcFPGA(i::i+tileSize)
+
+        val b2 = FIFO[T](tileSize)
+        Foreach(tileSize by 1) { ii =>
+          b2.enq(b1.deq() * x)
+        }
+
+        dstFPGA(i::i+tileSize) store b2
+      }
+    }
+    getMem(dstFPGA)
+  }
+
+  def main(args: Array[String]): Unit = {
+    val arraySize = N
+    val value = args(0).to[Int]
+
+    val src = Array.tabulate[Int](arraySize) { i => i % 256 }
+    val dst = simpleLoadStore(src, value)
+
+    val gold = src.map { _ * value }
+
+    println("Sent in: ")
+    (0 until arraySize) foreach { i => print(gold(i) + " ") }
+    println("Got out: ")
+    (0 until arraySize) foreach { i => print(dst(i) + " ") }
+    println("")
+
+    val cksum = dst.zip(gold){_ == _}.reduce{_&&_}
+    println("PASS: " + cksum + "(Lab1Part4FIFOExample)")
+  }
+}
 ```
 
 * Run Scala simulation and VCS simulation. Report the results of VCS simulation.
@@ -74,7 +122,46 @@ The app ran with the same performance compared to the sans FIFO implementation. 
 * Use Fold controller to calculate the sum of an element. You can leave your implementation in Lab1Part7FoldExample.  
 Your implementation
 ```scala
-// Copy-paste your implementation here
+// Fold
+@spatial object Lab1Part6FoldExample extends SpatialApp {
+  val N = 32
+  val tileSize = 16
+  type T = Int
+
+
+  def main(args: Array[String]): Unit = {
+    val initial = args(0).to[Int]
+    val arraySize = N
+    val srcFPGA = DRAM[T](N)
+    val src = Array.tabulate[Int](arraySize) { i => i % 256 }
+    setMem(srcFPGA, src)
+    val destArg = ArgOut[T]
+
+    val x = ArgIn[T]
+    setArg(x, initial)
+    Accel {
+      val accum = Reg[T](0)
+      accum := x
+      Sequential.Fold(accum)(N by tileSize) { i =>
+        val b1 = SRAM[T](tileSize)
+        b1 load srcFPGA(i::i+tileSize)
+        Reduce(0)(tileSize by 1) { ii => b1(ii) }{_+_}
+      }{_+_}
+
+
+      destArg := accum.value
+    }
+
+    val result = getArg(destArg)
+    val gold = src.reduce{_+_} + initial
+    println("Gold: " + gold)
+    println("Result: : " + result)
+    println("")
+
+    val cksum = gold == result
+    println("PASS: " + cksum + "(Lab1Part6FoldExample)")
+  }
+}
 ```
 
 ### Part 5

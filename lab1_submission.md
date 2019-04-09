@@ -51,6 +51,74 @@ The app runs in 836 cycles and uses a total of 128 bytes for each reading and wr
 * Synthesize the design and run on the FPGA. Report the number of cycles needed for the design. 
 
 * Report the resource utilization of your design. 
+```
+1. Slice Logic
+--------------
+
++--------------------------------------+-------+-------+-----------+-------+
+|               Site Type              |  Used | Fixed | Available | Util% |
++--------------------------------------+-------+-------+-----------+-------+
+| Slice LUTs                           | 20183 |     0 |    218600 |  9.23 |
+|   LUT as Logic                       | 13430 |     0 |    218600 |  6.14 |
+|   LUT as Memory                      |  3122 |     0 |     70400 |  4.43 |
+|     LUT as Distributed RAM           |  1288 |     0 |           |       |
+|     LUT as Shift Register            |  1834 |     0 |           |       |
+|   LUT used exclusively as pack-thrus |  3631 |     0 |    218600 |  1.66 |
+| Slice Registers                      | 21453 |     0 |    437200 |  4.91 |
+|   Register as Flip Flop              | 21453 |     0 |    437200 |  4.91 |
+|   Register as Latch                  |     0 |     0 |    437200 |  0.00 |
+|   Register as pack-thrus             |     0 |     0 |    437200 |  0.00 |
+| F7 Muxes                             |   719 |     0 |    109300 |  0.66 |
+| F8 Muxes                             |   129 |     0 |     54650 |  0.24 |
++--------------------------------------+-------+-------+-----------+-------+
+
+2. Slice Logic Distribution
+---------------------------
+
++-------------------------------------------+-------+-------+-----------+-------+
+|                 Site Type                 |  Used | Fixed | Available | Util% |
++-------------------------------------------+-------+-------+-----------+-------+
+| Slice                                     |  7064 |     0 |     54650 | 12.93 |
+|   SLICEL                                  |  4601 |     0 |           |       |
+|   SLICEM                                  |  2463 |     0 |           |       |
+| LUT as Logic                              | 13430 |     0 |    218600 |  6.14 |
+|   using O5 output only                    |     0 |       |           |       |
+|   using O6 output only                    | 10644 |       |           |       |
+|   using O5 and O6                         |  2786 |       |           |       |
+| LUT as Memory                             |  3122 |     0 |     70400 |  4.43 |
+|   LUT as Distributed RAM                  |  1288 |     0 |           |       |
+|     using O5 output only                  |     0 |       |           |       |
+|     using O6 output only                  |     8 |       |           |       |
+|     using O5 and O6                       |  1280 |       |           |       |
+|   LUT as Shift Register                   |  1834 |     0 |           |       |
+|     using O5 output only                  |     9 |       |           |       |
+|     using O6 output only                  |  1813 |       |           |       |
+|     using O5 and O6                       |    12 |       |           |       |
+| LUT used exclusively as pack-thrus        |  3631 |     0 |    218600 |  1.66 |
+|   Number with same-slice carry load       |  2453 |       |           |       |
+|   Number with same-slice register load    |  1320 |       |           |       |
+|   Number with same-slice other load       |     0 |       |           |       |
+| LUT Flip Flop Pairs                       |  7499 |     0 |    218600 |  3.43 |
+|   fully used LUT-FF pairs                 |  2151 |       |           |       |
+|   LUT-FF pairs with one unused LUT output |  4900 |       |           |       |
+|   LUT-FF pairs with one unused Flip Flop  |  4532 |       |           |       |
+| Unique Control Sets                       |   783 |       |           |       |
++-------------------------------------------+-------+-------+-----------+-------+
+
+3. Memory
+---------
+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |    2 |     0 |       545 |  0.37 |
+|   RAMB36/FIFO*    |    2 |     0 |       545 |  0.37 |
+|     RAMB36E1 only |    2 |       |           |       |
+|   RAMB18          |    0 |     0 |      1090 |  0.00 |
++-------------------+------+-------+-----------+-------+
+
+Overall the application has very low resource utilization for both memory and logic as shown through the low percentages.
+```
 
 
 ### Part 3
@@ -116,6 +184,78 @@ The app ran with the same performance compared to the sans FIFO implementation. 
 * Synthesize the design and run it on the board. Report the number of cycles for running the design. 
 
 * Check the utilization report. Report the resource utilization of your design.
+```
+1. Slice Logic
+--------------
+
++--------------------------------------+-------+-------+-----------+-------+
+|               Site Type              |  Used | Fixed | Available | Util% |
++--------------------------------------+-------+-------+-----------+-------+
+| Slice LUTs                           | 20377 |     0 |    218600 |  9.32 |
+|   LUT as Logic                       | 13471 |     0 |    218600 |  6.16 |
+|   LUT as Memory                      |  3118 |     0 |     70400 |  4.43 |
+|     LUT as Distributed RAM           |  1288 |     0 |           |       |
+|     LUT as Shift Register            |  1830 |     0 |           |       |
+|   LUT used exclusively as pack-thrus |  3788 |     0 |    218600 |  1.73 |
+| Slice Registers                      | 21583 |     0 |    437200 |  4.94 |
+|   Register as Flip Flop              | 21583 |     0 |    437200 |  4.94 |
+|   Register as Latch                  |     0 |     0 |    437200 |  0.00 |
+|   Register as pack-thrus             |     0 |     0 |    437200 |  0.00 |
+| F7 Muxes                             |   719 |     0 |    109300 |  0.66 |
+| F8 Muxes                             |   129 |     0 |     54650 |  0.24 |
++--------------------------------------+-------+-------+-----------+-------+
+
+In comparison with the DRAM/SRAM implementation of the app, the FIFO implementation utilized 0.02% more logic LUTs as well as a slightly higher percentage of registers. 
+
+2. Slice Logic Distribution
+---------------------------
+
++-------------------------------------------+-------+-------+-----------+-------+
+|                 Site Type                 |  Used | Fixed | Available | Util% |
++-------------------------------------------+-------+-------+-----------+-------+
+| Slice                                     |  7199 |     0 |     54650 | 13.17 |
+|   SLICEL                                  |  4590 |     0 |           |       |
+|   SLICEM                                  |  2609 |     0 |           |       |
+| LUT as Logic                              | 13471 |     0 |    218600 |  6.16 |
+|   using O5 output only                    |     0 |       |           |       |
+|   using O6 output only                    | 10667 |       |           |       |
+|   using O5 and O6                         |  2804 |       |           |       |
+| LUT as Memory                             |  3118 |     0 |     70400 |  4.43 |
+|   LUT as Distributed RAM                  |  1288 |     0 |           |       |
+|     using O5 output only                  |     0 |       |           |       |
+|     using O6 output only                  |     8 |       |           |       |
+|     using O5 and O6                       |  1280 |       |           |       |
+|   LUT as Shift Register                   |  1830 |     0 |           |       |
+|     using O5 output only                  |     5 |       |           |       |
+|     using O6 output only                  |  1813 |       |           |       |
+|     using O5 and O6                       |    12 |       |           |       |
+| LUT used exclusively as pack-thrus        |  3788 |     0 |    218600 |  1.73 |
+|   Number with same-slice carry load       |  2526 |       |           |       |
+|   Number with same-slice register load    |  1426 |       |           |       |
+|   Number with same-slice other load       |     0 |       |           |       |
+| LUT Flip Flop Pairs                       |  7535 |     0 |    218600 |  3.45 |
+|   fully used LUT-FF pairs                 |  2155 |       |           |       |
+|   LUT-FF pairs with one unused LUT output |  4942 |       |           |       |
+|   LUT-FF pairs with one unused Flip Flop  |  4626 |       |           |       |
+| Unique Control Sets                       |   791 |       |           |       |
++-------------------------------------------+-------+-------+-----------+-------+
+
+The greater logic footprint of the FIFO implementation is also displayed here in the logic distribution as this implementation uses slightly greater resources than the SRAM/DRAM counterpart.
+
+3. Memory
+---------
+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |    2 |     0 |       545 |  0.37 |
+|   RAMB36/FIFO*    |    2 |     0 |       545 |  0.37 |
+|     RAMB36E1 only |    2 |       |           |       |
+|   RAMB18          |    0 |     0 |      1090 |  0.00 |
++-------------------+------+-------+-----------+-------+
+
+In terms of memory, both implementations are equivalent.
+```
 
 
 ### Part 4

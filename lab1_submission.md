@@ -52,6 +52,8 @@ The app runs in 836 cycles and uses a total of 128 bytes for each reading and wr
 
 * Report the resource utilization of your design. 
 ```
+According to the run.log, our implementation runs in 313 cycles on the FPGA.
+
 1. Slice Logic
 --------------
 
@@ -185,6 +187,9 @@ The app ran with the same performance compared to the sans FIFO implementation. 
 
 * Check the utilization report. Report the resource utilization of your design.
 ```
+
+According to the run.log, our implementation ran in 299 cycles on the FPGA board.
+
 1. Slice Logic
 --------------
 
@@ -306,3 +311,9 @@ Your implementation
 
 ### Part 5
 * Please tell us what works and what doesn't for this lab:
+
+Overall, the instructions and assignments were rather straightforward, so we didn't encounter too much
+difficulty going through the steps and using the tools. For things that were not explicitly given to
+us in the lab handout, it did take some digging through of the Spatial documentation, and it was not
+completely clear how the various commands were implemented, though the lecture on Monday provided 
+clarification on any remaining questions we had on Spatial syntax.

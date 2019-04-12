@@ -82,7 +82,36 @@ work with memories. In this part of the exercise, we would like to reimplement
 Lab2Part1SimpleMemReduce using MemFold. You can put your implementation under Lab2Part2SimpleMemFold.
 Please also attach your implementation in the report: 
 ```scala
-// Copy-paste your implementation here
+// MemFold
+@spatial object Lab2Part2SimpleMemFold extends SpatialApp {
+
+  val N = 16.to[Int]
+
+  def main(args: Array[String]): Unit = {
+    val initial = args(0).to[Int]
+    val x = ArgIn[Int]
+    setArg(x, initial)
+    val out = DRAM[Int](16)
+    Accel {
+      val a = SRAM[Int](16)
+      Foreach(16 by 1) { k => a(k) = x}
+      MemFold(a)(-5 until 5 by 1){i =>
+        val tmp = SRAM[Int](16)
+        Foreach(16 by 1) { j => tmp(j) = 1}
+        tmp
+      }{_+_}
+      out store a
+    }
+
+    val result = getMem(out)
+    val gold = Array.tabulate(16){i => 10.to[Int] + initial}
+    printArray(gold, "expected: ")
+    printArray(result, "result:   ")
+
+    val cksum = gold.zip(result){_==_}.reduce{_&&_}
+    println("PASS: " + cksum + " (Lab2Part2SimpleMemFold)")
+  }
+}
 ```
 
 ## Part 2
@@ -174,7 +203,36 @@ Example: Fill an SRAM of size 32 using the following rules:
 You can modify Lab2Part3BasicCondFSM to implement this new example. Please save
 this new example as Lab2Part3BasicCondFSMAlt. 
 ```scala
-// Copy-paste your implementation here
+// FSM Alt
+@spatial object Lab2Part3BasicCondFSMAlt extends SpatialApp { // Regression (Unit) // Args: none
+
+  def main(args: Array[String]): Unit = {
+    val dram = DRAM[Int](32)
+    Accel {
+      val bram = SRAM[Int](32)
+      FSM(0)(state => state < 32) { state =>
+        if (state < 8) {
+          bram(state) = state // 0:7 [0, 1, ... 7]
+        } else if (state >= 8 && state < 16) {
+          bram(state) = state*2 // 8:15 [16, 18, 20 ... 30]
+        } else if (state >= 16 && state < 24) {
+          bram(state) = state*3 // 16:24 [48, 51, 54 ... 69]
+        } else {
+          bram(state) = state*4 // 25:31 [96, 100, 104 ... 124]
+        }
+      }{state => state + 1}
+
+      dram(0::32) store bram
+    }
+    val result = getMem(dram)
+    val gold = Array[Int](0, 1, 2, 3, 4, 5, 6, 7, 16, 18, 20, 22, 24, 26, 28, 30,
+                  48, 51, 54, 57, 60, 63, 66, 69, 96, 100, 104, 108, 112, 116, 120, 124)
+    printArray(result, "Result")
+    printArray(gold, "Gold")
+    val cksum = gold.zip(result){_ == _}.reduce{_&&_}
+    println("PASS: " + cksum + " (Lab2Part3BasicCondFSMAlt)")
+  }
+}
 ```
 
 ## Part 3

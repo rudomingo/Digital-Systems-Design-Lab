@@ -94,27 +94,36 @@ import spatial.dsl._
   }
 }
 
+// FSM Alt
+@spatial object Lab2Part3BasicCondFSMAlt extends SpatialApp { // Regression (Unit) // Args: none
 
+  def main(args: Array[String]): Unit = {
+    val dram = DRAM[Int](32)
+    Accel {
+      val bram = SRAM[Int](32)
+      FSM(0)(state => state < 32) { state =>
+        if (state < 8) {
+          bram(state) = state // 0:7 [0, 1, ... 7]
+        } else if (state >= 8 && state < 16) {
+          bram(state) = state*2 // 8:15 [16, 18, 20 ... 30]
+        } else if (state >= 16 && state < 24) {
+          bram(state) = state*3 // 16:24 [48, 51, 54 ... 69]
+        } else {
+          bram(state) = state*4 // 25:31 [96, 100, 104 ... 124]
+        }
+      }{state => state + 1}
 
-// FSMAlt
-// @spatial object Lab2Part3BasicCondFSMAlt extends SpatialApp {
-//
-//   def main(args: Array[String]): Unit = {
-//     val dram = DRAM[Int](32)
-//     Accel {
-//       // Your code here
-//     }
-//     val result = getMem(dram)
-//     val gold = Array[Int](0, 1, 2, 3, 4, 5, 6, 7, 16, 18, 20, 22, 24,
-//                           26, 28, 30, 48, 51, 54, 57, 60, 63, 66, 69,
-//                           96, 100, 104, 108, 112, 116, 120, 124)
-//     printArray(result, "Result")
-//     printArray(gold, "Gold")
-//     val cksum = gold.zip(result){_ == _}.reduce{_&&_}
-//     println("PASS: " + cksum + " (Lab2Part3BasicCondFSMAlt)")
-//   }
-// }
-
+      dram(0::32) store bram
+    }
+    val result = getMem(dram)
+    val gold = Array[Int](0, 1, 2, 3, 4, 5, 6, 7, 16, 18, 20, 22, 24, 26, 28, 30,
+                  48, 51, 54, 57, 60, 63, 66, 69, 96, 100, 104, 108, 112, 116, 120, 124)
+    printArray(result, "Result")
+    printArray(gold, "Gold")
+    val cksum = gold.zip(result){_ == _}.reduce{_&&_}
+    println("PASS: " + cksum + " (Lab2Part3BasicCondFSMAlt)")
+  }
+}
 
 // @spatial object Lab2Part4LUT extends SpatialApp {
 //

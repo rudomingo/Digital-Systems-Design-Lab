@@ -240,6 +240,42 @@ this new example as Lab2Part3BasicCondFSMAlt.
 to do here is that given a LUT, the user will provide a base value, index i and
 index j. The output should be base + LUT(i,j).
 
+@spatial object Lab2Part4LUT extends SpatialApp {
+
+  def main(args: Array[String]): Unit = {
+    type T = Int
+    val M = 3
+    val N = 3
+
+    val in = ArgIn[T]
+    val out = ArgOut[T]
+    val i = ArgIn[T]
+    val j = ArgIn[T]
+
+    val input = args(0).to[T]
+    val ind_i = args(1).to[T]
+    val ind_j = args(2).to[T]
+
+    setArg(in, input)
+    setArg(i, ind_i)
+    setArg(j, ind_j)
+
+    Accel {
+      val lut = LUT[T](M, N)(1.to[T], 2.to[T], 3.to[T], 4.to[T],
+                            5.to[T], 6.to[T], 7.to[T], 8.to[T], 9.to[T])
+      val lut_value = lut(i, j)
+      out := lut_value + in
+    }
+
+    val result = getArg(out)
+    val goldArray = Array.tabulate(M * N){ i => i + 1 }
+    val gold = input + goldArray(i*N + j)
+    val pass = gold == result
+    println("PASS: " + pass + "(Lab2Part4LUT)")
+  }
+}
+
+
 ## Part 4
 * In every iteration of the innermost Foreach, we bring in two SRAMs of data.
 From the animation, you should have seen how we use the two SRAMs to populate a

@@ -88,6 +88,77 @@ Please also attach your implementation in the report:
 ## Part 2
 * Synthesize the example application. Report on the resource utilization and
 cycle counts. The example application is stored as Lab2Part3BasicCondFSM.
+```
+The application ran for 277 cycles on the FPGA board once synthesized. Below are its
+resource utilizations:
+
+1. Slice Logic
+--------------
+
++--------------------------------------+-------+-------+-----------+-------+
+|               Site Type              |  Used | Fixed | Available | Util% |
++--------------------------------------+-------+-------+-----------+-------+
+| Slice LUTs                           | 15337 |     0 |    218600 |  7.02 |
+|   LUT as Logic                       |  9947 |     0 |    218600 |  4.55 |
+|   LUT as Memory                      |  2187 |     0 |     70400 |  3.11 |
+|     LUT as Distributed RAM           |   856 |     0 |           |       |
+|     LUT as Shift Register            |  1331 |     0 |           |       |
+|   LUT used exclusively as pack-thrus |  3203 |     0 |    218600 |  1.47 |
+| Slice Registers                      | 17575 |     0 |    437200 |  4.02 |
+|   Register as Flip Flop              | 17575 |     0 |    437200 |  4.02 |
+|   Register as Latch                  |     0 |     0 |    437200 |  0.00 |
+|   Register as pack-thrus             |     0 |     0 |    437200 |  0.00 |
+| F7 Muxes                             |   547 |     0 |    109300 |  0.50 |
+| F8 Muxes                             |     4 |     0 |     54650 | <0.01 |
++--------------------------------------+-------+-------+-----------+-------+
+
+2. Slice Logic Distribution
+---------------------------
+
++-------------------------------------------+------+-------+-----------+-------+
+|                 Site Type                 | Used | Fixed | Available | Util% |
++-------------------------------------------+------+-------+-----------+-------+
+| Slice                                     | 5751 |     0 |     54650 | 10.52 |
+|   SLICEL                                  | 3681 |     0 |           |       |
+|   SLICEM                                  | 2070 |     0 |           |       |
+| LUT as Logic                              | 9947 |     0 |    218600 |  4.55 |
+|   using O5 output only                    |    0 |       |           |       |
+|   using O6 output only                    | 8027 |       |           |       |
+|   using O5 and O6                         | 1920 |       |           |       |
+| LUT as Memory                             | 2187 |     0 |     70400 |  3.11 |
+|   LUT as Distributed RAM                  |  856 |     0 |           |       |
+|     using O5 output only                  |    0 |       |           |       |
+|     using O6 output only                  |    8 |       |           |       |
+|     using O5 and O6                       |  848 |       |           |       |
+|   LUT as Shift Register                   | 1331 |     0 |           |       |
+|     using O5 output only                  |   34 |       |           |       |
+|     using O6 output only                  | 1293 |       |           |       |
+|     using O5 and O6                       |    4 |       |           |       |
+| LUT used exclusively as pack-thrus        | 3203 |     0 |    218600 |  1.47 |
+|   Number with same-slice carry load       | 1932 |       |           |       |
+|   Number with same-slice register load    | 1408 |       |           |       |
+|   Number with same-slice other load       |    0 |       |           |       |
+| LUT Flip Flop Pairs                       | 5512 |     0 |    218600 |  2.52 |
+|   fully used LUT-FF pairs                 | 1731 |       |           |       |
+|   LUT-FF pairs with one unused LUT output | 3385 |       |           |       |
+|   LUT-FF pairs with one unused Flip Flop  | 3137 |       |           |       |
+| Unique Control Sets                       |  720 |       |           |       |
++-------------------------------------------+------+-------+-----------+-------+
+
+3. Memory
+---------
+
++-------------------+------+-------+-----------+-------+
+|     Site Type     | Used | Fixed | Available | Util% |
++-------------------+------+-------+-----------+-------+
+| Block RAM Tile    |  1.5 |     0 |       545 |  0.28 |
+|   RAMB36/FIFO*    |    1 |     0 |       545 |  0.18 |
+|     RAMB36E1 only |    1 |       |           |       |
+|   RAMB18          |    1 |     0 |      1090 |  0.09 |
+|     RAMB18E1 only |    1 |       |           |       |
++-------------------+------+-------+-----------+-------+
+```
+
 * Let's try a different example. Here is the description: 
 
 Example: Fill an SRAM of size 32 using the following rules: 

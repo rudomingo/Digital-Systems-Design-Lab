@@ -194,7 +194,6 @@ import spatial.dsl._
     setMem(c, c_init)
 
     Accel {
-      // val accum = Reg[T](0)
       Foreach(K by tileK par outerPar){kk =>
         val numel_k = min(tileK.to[Int], K - kk)
         Foreach(M by tileM par innerPar){mm =>
@@ -217,24 +216,6 @@ import spatial.dsl._
               }
               result
             }{_+_}
-
-            /*
-            val result = SRAM[T](numel_m, numel_n)
-            Foreach(numel_m by 1 par innerPar) { m =>
-              //val row = SRAM[T](numel_k)
-              //row = tileA_sram(m,0::numel_k)
-              Foreach(numel_n by 1 par innerPar) { n =>
-                //val col = SRAM[T](numel_k)
-                //col = tileA_sram(0::numel_k, n)
-                MemFold(tileC_sram(m,n))(numel_k by 1 par innerPar) { k=>
-                  val row = SRAM[T](numel_k)
-                  val col = SRAM[T](numel_k)
-                  row load tileA_sram(m, 0::numel_k) 
-                  col load tileB_sram(0::numel_k, n)
-                  row(m, k) * col(k, n)
-                }{_+_}
-              }
-            }*/
 
             c(mm::mm+numel_m, nn::nn+numel_n) store tileC_sram
           }

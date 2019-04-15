@@ -291,5 +291,5 @@ Please also attach your implementation in the report:
 ## Part 5: Extra Credits (5 points out of 100)
 * In lecture, we covered about how to tune the parallelization factors of controllers to improve the performance of dot product. Can you do the same for GEMM? What is the fewest number of cycles you can achieve? What is the resource utilization? What is your reasoning on choosing your embedded memory size and parallelization factors? 
 ```scala
-// Copy-paste your implementation here
+Our original implementation of GEMM, shown above, ran for 20617 cycles on the FPGA. 
 ```

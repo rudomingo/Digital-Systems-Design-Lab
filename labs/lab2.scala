@@ -173,7 +173,6 @@ import spatial.dsl._
     val tileM = 16
     val tileN = 16
     val tileK = 16
-    val single = 1
 
     val M = ArgIn[Int]
     val N = ArgIn[Int]

@@ -2,10 +2,12 @@
 
 The design of integrated digital systems encompassing both customized software and hardware. Software / hardware design tradeoffs. Algorithm design for pipelining and parallelism. System latency and throughput tradeoffs. FPGA optimization techniques. Integration with external systems and smart devices. Firmware configuration and embedded system considerations. Enrollment limited to 25; preference to graduating seniors. Prerequisites: 180 (formerly 108B), and CS 106B or X.
 
-**Tutorial for Test Users**
+**Tutorials for Using the Toolchain**
 <!-- * [Tutorial 0: Running Scala and VCS Simulation](test.md) -->
 
 * [Tutorial 1: Mounting a Remote File System](sshfs.md)
+
+* [Tutorial 2: Using an IDE for Spatial development](ide.md)
 
 <!-- **Reference Designs:**
 * [MachSuite](https://github.com/stanford-ppl/spatial-apps/blob/regression_arria10/src/MachSuite.scala)
@@ -14,7 +16,7 @@ The design of integrated digital systems encompassing both customized software a
 
 * [Basic Spatial Component Examples](https://github.com/stanford-ppl/spatial-apps/blob/regression_arria10/src/UnitTests.scala) -->
 
-
+**Lab Links**
 * [Lab 1: Basic Usage of Spatial](lab1.md)
 
 * [Lab 1 Submission](lab1_submission.md)
@@ -24,16 +26,15 @@ The design of integrated digital systems encompassing both customized software a
 
 * [Lab 2 Submission](lab2_submission.md)
 
-<!-- **Laboratory Links:**
-
 * [Lab 3: Algorithm-Specific Hardware Design](lab3.md)
 
 * [Lab 3 Submission](lab3_submission.md)
 
+<!-- **Laboratory Links:**
+
 * [Lab 4: Embedded Linux Programming](lab4.md)
 
 * [Lab 4 Submission](lab4_submission.md) -->
-
 
 **Project Directions**
 * [Project Proposal Guidelines](project_proposal.md)

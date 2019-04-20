@@ -41,10 +41,17 @@ import spatial.dsl._
         Foreach (0 until C) {c =>
           Pipe{sr.reset(c==0)}
           Foreach (0 until Kh) {i => sr(i,*) <<= lb(i,c)}
-          val horz = Reduce(Reg[T])(Kh by 1) {
-
-          } 
-          lineOut(c) = mux( r<2, 0.to[T], abs(horz.value) + abs(vert.value))
+          val horz = Reduce(Reg[T])(Kh by 1) { i =>
+            Reduce(0)(Kw by 1) { j => 
+              sr(i,j) * kh(i,j)
+            }{_+_}
+          }{_+_}
+          val vert = Reduce(Reg[T])(Kh by 1) { i =>
+            Reduce(0)(Kw by 1) { j => 
+              sr(i,j) * kv(i,j)
+            }{_+_}
+          }{_+_}
+          lineOut(c) = mux( r<2 || c<2, 0.to[T], abs(horz.value) + abs(vert.value))
         }
         imgOut(r, 0::C) store lineOut
       }   

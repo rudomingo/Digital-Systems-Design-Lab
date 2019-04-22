@@ -16,7 +16,7 @@ import spatial.dsl._
     val C = ArgIn[Int]
     setArg(R, image.rows)
     setArg(C, image.cols)
-    val lb_par = 8
+    val lb_par = 2
 
     val img = DRAM[T](R, C)
     val imgOut = DRAM[T](R, C)

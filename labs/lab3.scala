@@ -109,133 +109,151 @@ import spatial.dsl._
 }
 
 
-// @spatial object Lab3Part2NW extends SpatialApp {
-//  /*
+@spatial object Lab3Part2NW extends SpatialApp {
+ /*
 
-//   Needleman-Wunsch Genetic Alignment algorithm
+  Needleman-Wunsch Genetic Alignment algorithm
 
-//     LETTER KEY:         Scores                   Ptrs
-//       a = 0                   T  T  C  G                T  T  C  G
-//       c = 1                0 -1 -2 -3 -4 ...         0  ←  ←  ←  ← ...
-//       g = 2             T -1  1  0 -1 -2          T  ↑  ↖  ←  ←  ←
-//       t = 3             C -2  0 -1  1  0          C  ↑  ↑  ↑  ↖  ←
-//       - = 4             G -3 -2 -2  0  2          G  ↑  ↑  ↑  ↑  ↖
-//       _ = 5             A -4 -3 -3 -1  1          A  ↑  ↑  ↑  ↑  ↖
-//                            .                         .
-//                            .                         .
-//                            .                         .
+    LETTER KEY:         Scores                   Ptrs
+      a = 0                   T  T  C  G                T  T  C  G
+      c = 1                0 -1 -2 -3 -4 ...         0  ←  ←  ←  ← ...
+      g = 2             T -1  1  0 -1 -2          T  ↑  ↖  ←  ←  ←
+      t = 3             C -2  0 -1  1  0          C  ↑  ↑  ↑  ↖  ←
+      - = 4             G -3 -2 -2  0  2          G  ↑  ↑  ↑  ↑  ↖
+      _ = 5             A -4 -3 -3 -1  1          A  ↑  ↑  ↑  ↑  ↖
+                           .                         .
+                           .                         .
+                           .                         .
 
-//     PTR KEY:
-//       ← = 0 = skipB
-//       ↑ = 1 = skipA
-//       ↖ = 2 = align
+    PTR KEY:
+      ← = 0 = skipB
+      ↑ = 1 = skipA
+      ↖ = 2 = align
 
-//  */
+ */
 
-//   @struct case class nw_tuple(score: Int16, ptr: Int16)
+  @struct case class nw_tuple(score: Int16, ptr: Int16)
 
-//   def main(args: Array[String]): Unit = {
+  def main(args: Array[String]): Unit = {
 
-//     // FSM setup
-//     // In this state, we need to continue traverse from bottom right to top left
-//     val traverseState = 0
-//     // In this state, we need to pad both sequences by adding an INDEL
-//     val padBothState = 1
-//     // In this state, we are done traversing
-//     val doneState = 2
+    // FSM setup
+    // In this state, we need to continue traverse from bottom right to top left
+    val traverseState = 0
+    // In this state, we need to pad both sequences by adding an INDEL
+    val padBothState = 1
+    // In this state, we are done traversing
+    val doneState = 2
 
 
-//     val a = 'a'.to[Int8]
-//     val c = 'c'.to[Int8]
-//     val g = 'g'.to[Int8]
-//     val t = 't'.to[Int8]
-//     val d = '-'.to[Int8]
-//     val underscore = '_'.to[Int8]
-//     val dash = ArgIn[Int8]
+    val a = 'a'.to[Int8]
+    val c = 'c'.to[Int8]
+    val g = 'g'.to[Int8]
+    val t = 't'.to[Int8]
+    val d = '-'.to[Int8]
+    val underscore = '_'.to[Int8]
+    val dash = ArgIn[Int8]
 
-//     setArg(dash,d)
+    setArg(dash,d)
 
-//     val par_load = 1
-//     val par_store = 1
-//     val row_par = 1
+    val par_load = 1
+    val par_store = 1
+    val row_par = 1
 
-//     val SKIPB = 0
-//     val SKIPA = 1
-//     val ALIGN = 2
-//     val MATCH_SCORE = 1
-//     val MISMATCH_SCORE = -1
-//     val GAP_SCORE = -1
-//     // bash run.sh tcgacgaaataggatgacagcacgttctcgt ttcgagggcgcgtgtcgcggtccatcgacat
+    val SKIPB = 0
+    val SKIPA = 1
+    val ALIGN = 2
+    val MATCH_SCORE = 1
+    val MISMATCH_SCORE = -1
+    val GAP_SCORE = -1
+    // bash run.sh tcgacgaaataggatgacagcacgttctcgt ttcgagggcgcgtgtcgcggtccatcgacat
 
-//     val seqa_string = args(0) //"tcgacgaaataggatgacagcacgttctcgtattagagggccgcggtacaaaccaaatgctgcggcgtacagggcacggggcgctgttcgggagatcgggggaatcgtggcgtgggtgattcgccggc"
-//     val seqb_string = args(1) //"ttcgagggcgcgtgtcgcggtccatcgacatgcccggtcggtgggacgtgggcgcctgatatagaggaatgcgattggaaggtcggacgggtcggcgagttgggcccggtgaatctgccatggtcgat"
-//     val measured_length = seqa_string.length
-//     val length = ArgIn[Int]
-//     val lengthx2 = ArgIn[Int]
-//     setArg(length, measured_length)
-//     setArg(lengthx2, 2*measured_length)
+    val seqa_string = args(0) //"tcgacgaaataggatgacagcacgttctcgtattagagggccgcggtacaaaccaaatgctgcggcgtacagggcacggggcgctgttcgggagatcgggggaatcgtggcgtgggtgattcgccggc"
+    val seqb_string = args(1) //"ttcgagggcgcgtgtcgcggtccatcgacatgcccggtcggtgggacgtgggcgcctgatatagaggaatgcgattggaaggtcggacgggtcggcgagttgggcccggtgaatctgccatggtcgat"
+    val measured_length = seqa_string.length
+    val length = ArgIn[Int]
+    val lengthx2 = ArgIn[Int]
+    setArg(length, measured_length)
+    setArg(lengthx2, 2*measured_length)
 
-//     val max_length = 64
-//     assert(max_length >= length, "Cannot have string longer than 64 elements")
+    val max_length = 64
+    assert(max_length >= length, "Cannot have string longer than 64 elements")
 
-//     // Prepare the two sequences.
+    // Prepare the two sequences.
 
-//     val seqa_bin = seqa_string.map{c => c.to[Int8] }
-//     val seqb_bin = seqb_string.map{c => c.to[Int8] }
+    val seqa_bin = seqa_string.map{c => c.to[Int8] }
+    val seqb_bin = seqb_string.map{c => c.to[Int8] }
 
-//     val seqa_dram_raw = DRAM[Int8](length)
-//     val seqb_dram_raw = DRAM[Int8](length)
-//     val seqa_dram_aligned = DRAM[Int8](lengthx2)
-//     val seqb_dram_aligned = DRAM[Int8](lengthx2)
-//     setMem(seqa_dram_raw, seqa_bin)
-//     setMem(seqb_dram_raw, seqb_bin)
+    val seqa_dram_raw = DRAM[Int8](length)
+    val seqb_dram_raw = DRAM[Int8](length)
+    val seqa_dram_aligned = DRAM[Int8](lengthx2)
+    val seqb_dram_aligned = DRAM[Int8](lengthx2)
+    setMem(seqa_dram_raw, seqa_bin)
+    setMem(seqb_dram_raw, seqb_bin)
 
-//     Accel{
-//       val seqa_sram_raw = SRAM[Int8](max_length)
-//       val seqb_sram_raw = SRAM[Int8](max_length)
+    Accel{
+      val seqa_sram_raw = SRAM[Int8](max_length)
+      val seqb_sram_raw = SRAM[Int8](max_length)
 
-//       // These two FIFOs are used to store the aligned results
-//       val seqa_fifo_aligned = FIFO[Int8](max_length*2)
-//       val seqb_fifo_aligned = FIFO[Int8](max_length*2)
+      // These two FIFOs are used to store the aligned results
+      val seqa_fifo_aligned = FIFO[Int8](max_length*2)
+      val seqb_fifo_aligned = FIFO[Int8](max_length*2)
 
-//       seqa_sram_raw load seqa_dram_raw(0::length par par_load)
-//       seqb_sram_raw load seqb_dram_raw(0::length par par_load)
+      seqa_sram_raw load seqa_dram_raw(0::length par par_load)
+      seqb_sram_raw load seqb_dram_raw(0::length par par_load)
 
-//       val score_matrix = SRAM[nw_tuple](max_length+1,max_length+1)
+      val score_matrix = SRAM[nw_tuple](max_length+1,max_length+1)
 
-//       // Step 1: Build score matrix
-//       Foreach(length+1 by 1 par row_par) { r =>
-//         // TODO: Populate the score matrix row by row
-//         // Your implementation here
-//       }
+      // Step 1: Build score matrix
+      Foreach(length+1 by 1 par row_par) { r =>
+        Foreach(length+1 by 1) { c =>
+        val left_corner = (r == 0) && (c == 0)
+        val first_col = c<1
+        val first_row = r<1
+        val top_score = mux(first_row, 0.to[Int16], score_matrix(r-1, c).score + GAP_SCORE)
+        val left_score = mux(first_col, 0.to[Int16], score_matrix(r, c-1).score + GAP_SCORE)
+        val diag_score = mux(first_row || first_col, 0.to[Int16], 
+                          mux(seqa_sram_raw(c) == seqb_sram_raw(r), // Checks if the letter from string A and that from string B match
+                            score_matrix(r-1, c-1).score + MATCH_SCORE, score_matrix(r-1, c-1).score + MISMATCH_SCORE)
+        val cur_score = mux(first_col || first_row, // Checks if leftmost column/ uppermost row
+                          mux(first_col, top_score, left_score), // Leftmost column automatically assigned top_score, uppermost row assigned left_score
+                            mux((top_score >= left_score) && (top_score >= diag_score), // Comparisons to find maximum score from three paths
+                              top_score, mux((left_score >= top_score) && (left_score >= diag_score),
+                                left_score, diag_score)))
+        val cur_direction = mux(cur_score == left_score, SKIPB, mux(cur_score == top_score, SKIPA, ALIGN))                           
+        val cur = nw_tuple(cur_score, cur_direction)
+        score_matrix(r, c) = cur
+        }
+        // TODO: Populate the score matrix row by row
+        // Your implementation here
+      }
 
-//       // Step 2: Reconstruct the path
-//       val b_addr = Reg[Int](0) // Index of the current position in sequence b
-//       val a_addr = Reg[Int](0) // Index of the current position in sequence a
-//       Parallel{b_addr := length; a_addr := length} // Set the position to start from bottom right
-//       val done_backtrack = Reg[Bit](false) // A flag to tell if traceback is done
-//       // TODO: Implement an FSM that traces the path information to create the best aligntment. You can use doneState, padBothState, traverseState to track the current state of your FSM.
-//       // Your implementation here
+      // Step 2: Reconstruct the path
+      val b_addr = Reg[Int](0) // Index of the current position in sequence b
+      val a_addr = Reg[Int](0) // Index of the current position in sequence a
+      Parallel{b_addr := length; a_addr := length} // Set the position to start from bottom right
+      val done_backtrack = Reg[Bit](false) // A flag to tell if traceback is done
+      // TODO: Implement an FSM that traces the path information to create the best aligntment. You can use doneState, padBothState, traverseState to track the current state of your FSM.
+      // Your implementation here
 
-//       // Alignment completed. Send the aligned results back.
-//       Parallel{
-//         seqa_dram_aligned(0::length*2 par par_store) store seqa_fifo_aligned
-//         seqb_dram_aligned(0::length*2 par par_store) store seqb_fifo_aligned
-//       }
-//     }
+      // Alignment completed. Send the aligned results back.
+      Parallel{
+        seqa_dram_aligned(0::length*2 par par_store) store seqa_fifo_aligned
+        seqb_dram_aligned(0::length*2 par par_store) store seqb_fifo_aligned
+      }
+    }
 
-//     val seqa_aligned_result = getMem(seqa_dram_aligned)
-//     val seqb_aligned_result = getMem(seqb_dram_aligned)
-//     val seqa_aligned_string = charArrayToString(seqa_aligned_result.map(_.to[Char]))
-//     val seqb_aligned_string = charArrayToString(seqb_aligned_result.map(_.to[Char]))
+    val seqa_aligned_result = getMem(seqa_dram_aligned)
+    val seqb_aligned_result = getMem(seqb_dram_aligned)
+    val seqa_aligned_string = charArrayToString(seqa_aligned_result.map(_.to[Char]))
+    val seqb_aligned_string = charArrayToString(seqb_aligned_result.map(_.to[Char]))
 
-//     // Pass if >70% match
-//     val matches = seqa_aligned_result.zip(seqb_aligned_result){(a,b) => if ((a == b) || (a == dash) || (b == dash)) 1 else 0}.reduce{_+_}
-//     val cksum = matches.to[Float] > 0.70.to[Float]*measured_length.to[Float]*2
+    // Pass if >70% match
+    val matches = seqa_aligned_result.zip(seqb_aligned_result){(a,b) => if ((a == b) || (a == dash) || (b == dash)) 1 else 0}.reduce{_+_}
+    val cksum = matches.to[Float] > 0.70.to[Float]*measured_length.to[Float]*2
 
-//     println("Result A: " + seqa_aligned_string)
-//     println("Result B: " + seqb_aligned_string)
-//     println("Found " + matches + " matches out of " + measured_length*2 + " elements")
-//     println("PASS: " + cksum + " (Lab3Part2NW)")
-//   }
-// }
+    println("Result A: " + seqa_aligned_string)
+    println("Result B: " + seqb_aligned_string)
+    println("Found " + matches + " matches out of " + measured_length*2 + " elements")
+    println("PASS: " + cksum + " (Lab3Part2NW)")
+  }
+}

@@ -206,25 +206,22 @@ import spatial.dsl._
       // Step 1: Build score matrix
       Foreach(length+1 by 1 par row_par) { r =>
         Foreach(length+1 by 1) { c =>
-        val left_corner = (r == 0) && (c == 0)
         val first_col = c<1
         val first_row = r<1
         val top_score = mux(first_row, 0.to[Int16], score_matrix(r-1, c).score + GAP_SCORE)
         val left_score = mux(first_col, 0.to[Int16], score_matrix(r, c-1).score + GAP_SCORE)
         val diag_score = mux(first_row || first_col, 0.to[Int16], 
                           mux(seqa_sram_raw(c) == seqb_sram_raw(r), // Checks if the letter from string A and that from string B match
-                            score_matrix(r-1, c-1).score + MATCH_SCORE, score_matrix(r-1, c-1).score + MISMATCH_SCORE)
+                            score_matrix(r-1, c-1).score + MATCH_SCORE, score_matrix(r-1, c-1).score + MISMATCH_SCORE))
         val cur_score = mux(first_col || first_row, // Checks if leftmost column/ uppermost row
                           mux(first_col, top_score, left_score), // Leftmost column automatically assigned top_score, uppermost row assigned left_score
                             mux((top_score >= left_score) && (top_score >= diag_score), // Comparisons to find maximum score from three paths
                               top_score, mux((left_score >= top_score) && (left_score >= diag_score),
                                 left_score, diag_score)))
         val cur_direction = mux(cur_score == left_score, SKIPB, mux(cur_score == top_score, SKIPA, ALIGN))                           
-        val cur = nw_tuple(cur_score, cur_direction)
+        val cur = nw_tuple(cur_score.to[Int16], cur_direction.to[Int16])
         score_matrix(r, c) = cur
         }
-        // TODO: Populate the score matrix row by row
-        // Your implementation here
       }
 
       // Step 2: Reconstruct the path

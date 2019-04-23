@@ -1,4 +1,6 @@
 import spatial.dsl._
+import spatial.targets._
+import utils.implicits._
 
 
 @spatial object Lab3Part1Convolution extends SpatialApp {
@@ -16,7 +18,7 @@ import spatial.dsl._
     val C = ArgIn[Int]
     setArg(R, image.rows)
     setArg(C, image.cols)
-    val lb_par = 2
+    val lb_par = 8
 
     val img = DRAM[T](R, C)
     val imgOut = DRAM[T](R, C)
@@ -159,9 +161,9 @@ import spatial.dsl._
     val par_store = 1
     val row_par = 1
 
-    val SKIPB = 0
-    val SKIPA = 1
-    val ALIGN = 2
+    val SKIPB = 0.to[Int16]
+    val SKIPA = 1.to[Int16]
+    val ALIGN = 2.to[Int16]
     val MATCH_SCORE = 1
     val MISMATCH_SCORE = -1
     val GAP_SCORE = -1
@@ -229,8 +231,33 @@ import spatial.dsl._
       val a_addr = Reg[Int](0) // Index of the current position in sequence a
       Parallel{b_addr := length; a_addr := length} // Set the position to start from bottom right
       val done_backtrack = Reg[Bit](false) // A flag to tell if traceback is done
-      // TODO: Implement an FSM that traces the path information to create the best aligntment. You can use doneState, padBothState, traverseState to track the current state of your FSM.
-      // Your implementation here
+      FSM(0)(state => state != doneState) { state =>
+        if (state == traverseState) {
+          if (score_matrix(b_addr,a_addr).ptr == ALIGN) {
+            seqa_fifo_aligned.enq(seqa_sram_raw(a_addr-1), !done_backtrack)
+            seqb_fifo_aligned.enq(seqb_sram_raw(b_addr-1), !done_backtrack)
+            done_backtrack := a_addr == 1.to[Int] || b_addr == 1.to[Int]
+            a_addr :-= 1
+            b_addr :-= 1
+          } else if (score_matrix(b_addr,a_addr).ptr == SKIPB) {
+            seqa_fifo_aligned.enq(seqa_sram_raw(a_addr-1), !done_backtrack)
+            seqb_fifo_aligned.enq(dash, !done_backtrack)
+            done_backtrack := a_addr == 1.to[Int]
+            a_addr :-= 1
+          } else {
+            seqa_fifo_aligned.enq(dash, !done_backtrack)
+            seqb_fifo_aligned.enq(seqb_sram_raw(b_addr-1), !done_backtrack)
+            done_backtrack := b_addr == 1.to[Int]
+            b_addr :-= 1
+          }
+        } else if (state == padBothState) {
+          seqa_fifo_aligned.enq(underscore, !seqa_fifo_aligned.isFull)
+          seqb_fifo_aligned.enq(underscore, !seqb_fifo_aligned.isFull)
+        } else {}
+      } { state =>
+        mux(state == traverseState && ((b_addr == 0.to[Int]) || (a_addr == 0.to[Int])), padBothState, 
+                    mux(seqa_fifo_aligned.isFull || seqb_fifo_aligned.isFull, doneState, state))
+      }
 
       // Alignment completed. Send the aligned results back.
       Parallel{
@@ -245,7 +272,7 @@ import spatial.dsl._
     val seqb_aligned_string = charArrayToString(seqb_aligned_result.map(_.to[Char]))
 
     // Pass if >70% match
-    val matches = seqa_aligned_result.zip(seqb_aligned_result){(a,b) => if ((a == b) || (a == dash) || (b == dash)) 1 else 0}.reduce{_+_}
+    val matches = seqa_aligned_result.zip(seqb_aligned_result){(a,b) => if ((a == b) || (a == d) || (b == d)) 1 else 0}.reduce{_+_}
     val cksum = matches.to[Float] > 0.70.to[Float]*measured_length.to[Float]*2
 
     println("Result A: " + seqa_aligned_string)

@@ -8,6 +8,56 @@ Given the two kernels and the input data, perform 2 2-D convolution on the image
 ```scala
 // Copy-paste your implementation here
 ```
+def convolve(image: Matrix[T]): Matrix[T] = {
+    val B = 16
+
+    val R = ArgIn[Int]
+    val C = ArgIn[Int]
+    setArg(R, image.rows)
+    setArg(C, image.cols)
+    val lb_par = 8
+
+    val img = DRAM[T](R, C)
+    val imgOut = DRAM[T](R, C)
+
+    setMem(img, image)
+
+    Accel {
+      val lb = LineBuffer[T](Kh, Cmax)
+
+      val kh = LUT[T](3,3)(1.to[T], 0.to[T], -1.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           1.to[T], 0.to[T], -1.to[T])
+      val kv = LUT[T](3,3)(1.to[T],  2.to[T],  1.to[T],
+                           0.to[T],  0.to[T],  0.to[T],
+                          -1.to[T], -2.to[T], -1.to[T])
+
+      val sr = RegFile[T](Kh, Kw)
+      val lineOut = SRAM[T](Cmax)
+
+      Foreach (0 until R) {r =>
+        lb load img(r, 0::C par lb_par)
+        Foreach (0 until C) {c =>
+          Pipe{sr.reset(c==0)}
+          Foreach (0 until Kh) {i => sr(i,*) <<= lb(i,c)}
+          val horz = Reduce(Reg[T])(Kh by 1) { i =>
+            Reduce(0)(Kw by 1) { j => 
+              sr(i,j) * kh(i,j)
+            }{_+_}
+          }{_+_}
+          val vert = Reduce(Reg[T])(Kh by 1) { i =>
+            Reduce(0)(Kw by 1) { j => 
+              sr(i,j) * kv(i,j)
+            }{_+_}
+          }{_+_}
+          lineOut(c) = mux( r<2 || c<2, 0.to[T], abs(horz.value) + abs(vert.value))
+        }
+        imgOut(r, 0::C) store lineOut
+      }   
+    }
+
+    getMatrix(imgOut)
+}
 ```
 Our implmentation ran for 25086 cycles on the FPGA with an input of 64x64.
 
@@ -82,13 +132,64 @@ Our implmentation ran for 25086 cycles on the FPGA with an input of 64x64.
 ## Part 2
 Write the code that will traverse the matrix from top-left to bottom-right and update each entry of the score matrix.
 ```scala
-// Copy-paste your implementation here
+// Step 1: Build score matrix
+      Foreach(length+1 by 1 par row_par) { r =>
+        Foreach(length+1 by 1) { c =>
+        val first_col = c<1
+        val first_row = r<1
+        val top_score = mux(first_row, 0.to[Int16], score_matrix(r-1, c).score + GAP_SCORE)
+        val left_score = mux(first_col, 0.to[Int16], score_matrix(r, c-1).score + GAP_SCORE)
+        val diag_score = mux(first_row || first_col, 0.to[Int16], 
+                          mux(seqa_sram_raw(c) == seqb_sram_raw(r), // Checks if the letter from string A and that from string B match
+                            score_matrix(r-1, c-1).score + MATCH_SCORE, score_matrix(r-1, c-1).score + MISMATCH_SCORE))
+        val cur_score = mux(first_col || first_row, // Checks if leftmost column/ uppermost row
+                          mux(first_col, top_score, left_score), // Leftmost column automatically assigned top_score, uppermost row assigned left_score
+                            mux((top_score >= left_score) && (top_score >= diag_score), // Comparisons to find maximum score from three paths
+                              top_score, mux((left_score >= top_score) && (left_score >= diag_score),
+                                left_score, diag_score)))
+        val cur_direction = mux(cur_score == left_score, SKIPB, mux(cur_score == top_score, SKIPA, ALIGN))                           
+        val cur = nw_tuple(cur_score.to[Int16], cur_direction.to[Int16])
+        score_matrix(r, c) = cur
+        }
+      }
 ```
 
 ## Part 3
 Write the code that can traceback from the bottom-right to the top-left of the score matrix. You can add your implementation in Lab3Part2NW. Report the resource utilization and cycle counts of your NW implementation.
 ```scala
-// Copy-paste your implementation here
+// Step 2: Reconstruct the path
+      val b_addr = Reg[Int](0) // Index of the current position in sequence b
+      val a_addr = Reg[Int](0) // Index of the current position in sequence a
+      Parallel{b_addr := length; a_addr := length} // Set the position to start from bottom right
+      val done_backtrack = Reg[Bit](false) // A flag to tell if traceback is done
+      FSM(0)(state => state != doneState) { state =>
+        if (state == traverseState) {
+          if (score_matrix(b_addr,a_addr).ptr == ALIGN) {
+            seqa_fifo_aligned.enq(seqa_sram_raw(a_addr-1), !done_backtrack)
+            seqb_fifo_aligned.enq(seqb_sram_raw(b_addr-1), !done_backtrack)
+            done_backtrack := a_addr == 1.to[Int] || b_addr == 1.to[Int]
+            a_addr :-= 1
+            b_addr :-= 1
+          } else if (score_matrix(b_addr,a_addr).ptr == SKIPB) {
+            seqa_fifo_aligned.enq(seqa_sram_raw(a_addr-1), !done_backtrack)
+            seqb_fifo_aligned.enq(dash, !done_backtrack)
+            done_backtrack := a_addr == 1.to[Int]
+            a_addr :-= 1
+          } else {
+            seqa_fifo_aligned.enq(dash, !done_backtrack)
+            seqb_fifo_aligned.enq(seqb_sram_raw(b_addr-1), !done_backtrack)
+            done_backtrack := b_addr == 1.to[Int]
+            b_addr :-= 1
+          }
+        } else if (state == padBothState) {
+          seqa_fifo_aligned.enq(underscore, !seqa_fifo_aligned.isFull)
+          seqb_fifo_aligned.enq(underscore, !seqb_fifo_aligned.isFull)
+        } else {}
+      } { state =>
+        mux(state == traverseState && ((b_addr == 0.to[Int]) || (a_addr == 0.to[Int])), padBothState, 
+                    mux(seqa_fifo_aligned.isFull || seqb_fifo_aligned.isFull, doneState, state))
+      }
+
 ```
 
 ```

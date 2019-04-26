@@ -19,14 +19,25 @@ int main(int argc, char **argv)
 	unsigned char buf[BUFSIZE];	            /* receive buffer */
 
 	/* TODO: create a UDP socket */
+	if ((fd=socket(AF_INET, SOCK_DGRAM, 0))==-1) return 0;
 
 	/* TODO: bind the socket to any valid IP address and a specific port */
+	memset((char *)&myaddr, 0, sizeof(myaddr)); 
+	myaddr.sin_family = AF_INET; 
+	myaddr.sin_addr.s_addr = htonl(INADDR_ANY); 
+	myaddr.sin_port = htons(0); 
+	
+	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) { 
+		perror("bind failed"); 
+		return0; 
+	}
 
 	/* now loop, receiving data and printing what we received */
 	for (;;) {
 		printf("waiting on port %d\n", SERVICE_PORT);
+    
     /* TODO: receive a message from fd */
-
+	int recvlen = recvfrom(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, &slen);
     /* Check the received message and print out the first character */
 		if (recvlen > 0) {
 			buf[recvlen] = 0;

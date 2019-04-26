@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		printf("waiting on port %d\n", SERVICE_PORT);
     
     /* TODO: receive a message from fd */
-    int recvlen = recvfrom(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, &slen);
+    int recvlen = recvfrom(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, &addrlen);
     /* Check the received message and print out the first character */
 		if (recvlen > 0) {
 			buf[recvlen] = 0;

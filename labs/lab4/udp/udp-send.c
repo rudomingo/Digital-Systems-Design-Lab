@@ -36,7 +36,7 @@ int main(void)
   char *message = "Thirsty Thursday.";
 
   // Copy the message to the message buffer, buf
-  memcpy(message, buf, sizeof(message));
+  strcpy(buf, message);
 
 	// Now define remaddr, the address to whom we want to send messages. For convenience, the host address is expressed as a numeric IP address. We will convert this IP address to a binary format via inet_aton 
   memset((char *) &remaddr, 0, sizeof(remaddr));

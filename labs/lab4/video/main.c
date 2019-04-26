@@ -79,28 +79,29 @@ static void yuyv_to_rgb32 (int width, int height, char *src, long *dst)
         c = width >> 1;
         while (c--) {
             y1 = *s++;
-            cb =
-            cg =
+            cb = ((y1 - 128)*454) >> 8;
+            cg = (y1 - 128) * 88;
 
             y2 = *s++;
-            cr =
-            cg =
+            cr = ((y2 - 128)*359) >> 8;
+            cg = (cg + (y2 - 128)*183) >> 8;
 
-            r =
-            b =
-            g =
+            r = y1 + cr;
+            b = y1 + cb;
+            g = y1 - cg;
             SAT(r);
             SAT(g);
             SAT(b);
-            *dst++ =
+            *dst++ = (alpha << 24) | (r << 16) | (g << 8) | b;
 
-            r =
-            b =
-            g =
+            r = y2 + cr;
+            b = y2 + cb;
+            g = y2 - cg;
             SAT(r);
             SAT(g);
             SAT(b);
-            *dst++ =
+            *dst++ = (alpha << 24) | (r << 16) | (g << 8) | b;
+
         }
     }
 }

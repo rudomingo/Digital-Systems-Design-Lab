@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	memset((char *)&myaddr, 0, sizeof(myaddr)); 
 	myaddr.sin_family = AF_INET; 
 	myaddr.sin_addr.s_addr = htonl(INADDR_ANY); 
-	myaddr.sin_port = htons(0); 
+	myaddr.sin_port = htons(SERVICE_PORT); 
 	
 	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) { 
 		perror("bind failed"); 
@@ -37,12 +37,12 @@ int main(int argc, char **argv)
 		printf("waiting on port %d\n", SERVICE_PORT);
     
     /* TODO: receive a message from fd */
-    int recvlen = recvfrom(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, &addrlen);
+    int recvlen = recvfrom(fd, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
     /* Check the received message and print out the first character */
 		if (recvlen > 0) {
 			buf[recvlen] = 0;
       printf("received message: (%d bytes)\n", recvlen);
-      printf("first char: %c\n", *buf);
+      printf("entire string: %s\n", buf);
 		}
 		else
 			printf("uh oh - something went wrong!\n");

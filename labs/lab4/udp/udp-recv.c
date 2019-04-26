@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	
 	if (bind(fd, (struct sockaddr *)&myaddr, sizeof(myaddr)) < 0) { 
 		perror("bind failed"); 
-		return0; 
+		return 0; 
 	}
 
 	/* now loop, receiving data and printing what we received */
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 		printf("waiting on port %d\n", SERVICE_PORT);
     
     /* TODO: receive a message from fd */
-	int recvlen = recvfrom(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, &slen);
+    int recvlen = recvfrom(fd, buf, strlen(buf), 0, (struct sockaddr *)&remaddr, &slen);
     /* Check the received message and print out the first character */
 		if (recvlen > 0) {
 			buf[recvlen] = 0;

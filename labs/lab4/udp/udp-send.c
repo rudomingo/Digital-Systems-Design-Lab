@@ -22,7 +22,6 @@ int main(void)
   if ((fd=socket(AF_INET, SOCK_DGRAM, 0))==-1) return 0;
 
   // Bind the socket to all local addresses and pick any port number 
-  struct sockaddr_in myaddr;
   memset((char*)&myaddr, 0, sizeof(myaddr));
   myaddr.sin_family = AF_INET;
   myaddr.sin_addr.s_addr = htonl(INADDR_ANY);

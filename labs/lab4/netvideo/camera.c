@@ -192,7 +192,11 @@ static int camera(int fd_v4l)
         char packetind = 0;
         for(packetind; packetind < NUMPACKFRAME; packetind ++)
         {
-          /* TODO: send the packets here */
+          memcpy(netbuf, (char*)buffers[buf.index].start+(packetsize*packetind), packetsize);
+          if (sendto(netfd, netbuf, packetsize, 0, (struct sockaddr *)&remaddr, netslen)==-1) {
+            perror("sendto");
+            exit(1);
+          }
         }
 
         if (ioctl (fd_v4l, VIDIOC_QBUF, &buf) < 0) {

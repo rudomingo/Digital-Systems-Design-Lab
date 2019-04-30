@@ -79,12 +79,12 @@ static void yuyv_to_rgb32 (int width, int height, char *src, long *dst)
         c = width >> 1;
         while (c--) {
             y1 = *s++;
-            cb = ((y1 - 128)*454) >> 8;
-            cg = (y1 - 128) * 88;
+            cb = ((*s - 128)*454) >> 8;
+            cg = (*s++ - 128) * 88;
 
             y2 = *s++;
-            cr = ((y2 - 128)*359) >> 8;
-            cg = (cg + (y2 - 128)*183) >> 8;
+            cr = ((*s - 128)*359) >> 8;
+            cg = (cg + (*s++ - 128)*183) >> 8;
 
             r = y1 + cr;
             b = y1 + cb;

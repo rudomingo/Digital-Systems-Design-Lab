@@ -192,8 +192,9 @@ static int camera(int fd_v4l)
         char packetind = 0;
         for(packetind; packetind < NUMPACKFRAME; packetind ++)
         {
-          memcpy(netbuf, (char*)buffers[buf.index].start+(packetsize*packetind), packetsize);
-          if (sendto(netfd, netbuf, packetsize, 0, (struct sockaddr *)&remaddr, netslen)==-1) {
+          memset(netbuf, packetind, 1);
+          memcpy(netbuf+1, (char*)buffers[buf.index].start+(packetsize*packetind), packetsize);
+          if (sendto(netfd, netbuf, NETBUFSIZE, 0, (struct sockaddr *)&remaddr, netslen)==-1) {
             perror("sendto");
             exit(1);
           }

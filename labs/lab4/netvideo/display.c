@@ -35,29 +35,28 @@ static void yuyv_to_rgb32 (int width, int height, char *src, long *dst)
         c = width >> 1;
         while (c--) {
 		y1 = *s++;
-            	cb = ((y1 - 128)*454) >> 8;
-	        cg = (y1 - 128) * 88;
-
-	       	y2 = *s++;
-		cr = ((y2 - 128)*359) >> 8;
-		cg = (cg + (y2 - 128)*183) >> 8;
+            	cb = ((*s - 128)*454) >> 8;
+	        cg = (*s++ - 128) * 88;
+		
+		y2 = *s++;
+	        cr = ((*s - 128)*359) >> 8;
+		cg = (cg + (*s++ - 128)*183) >> 8;
 
 		r = y1 + cr;
 		b = y1 + cb;
 		g = y1 - cg;
-		SAT(r);													    SAT(g);													SAT(b);							
-	       	*dst++ = (alpha << 24) | (r << 16) | (g << 8) | b;
-
-										
-	       	r = y2 + cr;
-		b = y2 + cb;
-		g = y2 - cg;
-		SAT(r);
+ 		SAT(r);
 		SAT(g);
 		SAT(b);
 		*dst++ = (alpha << 24) | (r << 16) | (g << 8) | b;
-        // TODO: copy your colorspace conversion code from the last sections here.
-        }
+																		            		  r = y2 + cr;
+		b = y2 + cb;
+		g = y2 - cg;
+  		SAT(r);
+		SAT(g);
+		SAT(b);
+		*dst++ = (alpha << 24) | (r << 16) | (g << 8) | b;
+	}
     }
 }
 
@@ -140,7 +139,8 @@ static int display()
         for (packetiter; packetiter < NUMPACKFRAME; packetiter ++)
         {
 	    int recvlen = recvfrom(netfd, netbuf, NETBUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
-	    memcpy(yuv_buff + NETBUFSIZE * packetiter, netbuf, NETBUFSIZE);  
+	    char index = *netbuf;
+	    memcpy(yuv_buff + packetsize * index, netbuf + 1, packetsize);  
             /* TODO: add your implementation for collecting packets here */
         }
 	yuyv_to_rgb32(g_out_width, g_out_height, yuv_buff, bgr_buff);

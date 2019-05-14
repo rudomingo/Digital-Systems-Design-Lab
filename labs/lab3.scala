@@ -5,14 +5,14 @@ import utils.implicits._
 
 @spatial object Lab3Part1Convolution extends SpatialApp {
 
-  val Kh = 3
-  val Kw = 3
-  val Cmax = 16
+  val Kh = 6
+  val Kw = 6
+  val Cmax = 256
 
   type T = Int
 
   def convolve(image: Matrix[T]): Matrix[T] = {
-    val B = 16
+    val B = 256
 
     val R = ArgIn[Int]
     val C = ArgIn[Int]
@@ -28,11 +28,29 @@ import utils.implicits._
     Accel {
       val lb = LineBuffer[T](Kh, Cmax)
 
-      val kh = LUT[T](3,3)(1.to[T], 0.to[T], -1.to[T],
+      val kh = LUT[T](6,6)(1.to[T], 0.to[T], -1.to[T]
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
+                           2.to[T], 0.to[T], -2.to[T],
                            2.to[T], 0.to[T], -2.to[T],
                            1.to[T], 0.to[T], -1.to[T])
-      val kv = LUT[T](3,3)(1.to[T],  2.to[T],  1.to[T],
+      val kv = LUT[T](6,6)(1.to[T],  2.to[T],  1.to[T],
                            0.to[T],  0.to[T],  0.to[T],
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
+                          -1.to[T], -2.to[T], -1.to[T])
                           -1.to[T], -2.to[T], -1.to[T])
 
       val sr = RegFile[T](Kh, Kw)
@@ -53,7 +71,7 @@ import utils.implicits._
               sr(i,j) * kv(i,j)
             }{_+_}
           }{_+_}
-          lineOut(c) = mux( r<2 || c<2, 0.to[T], abs(horz.value) + abs(vert.value))
+          lineOut(c) = mux( r<5 || c<5, 0.to[T], abs(horz.value) + abs(vert.value))
         }
         imgOut(r, 0::C) store lineOut
       }   
@@ -63,14 +81,14 @@ import utils.implicits._
   }
 
   def main(args: Array[String]): Unit = {
-    val R = 16
-    val C = 16
-    val border = 3
+    val R = 256
+    val C = 256
+    val border = 6
     val image = (0::R, 0::C){(i,j) => if (j > border && j < C-border && i > border && i < C - border) i*16 else 0}
     val ids = (0::R, 0::C){(i,j) => if (i < 2) 0 else 1}
 
-    val kh = List((List(1,2,1), List(0,0,0), List(-1,-2,-1)))
-    val kv = List((List(1,0,-1), List(2,0,-2), List(1,0,-1)))
+    val kh = List((List(1,2,1,0,0,0), List(-1,-2,-1, -1, -2, -1), List(-1,-2,-1, -1, -2, -1), List(-1,-2,-1, -1, -2, -1), List(-1,-2,-1, -1, -2, -1), List(-1,-2,-1, -1, -2, -1)))
+    val kv = List((List(1,0,-1,2,0,-2), List(2,0,-2,2,0,-2), List(2,0,-2,2,0,-2), List(2,0,-2,2,0,-2), List(2,0,-2,2,0,-2), List(2,0,-2,1,0,-1)))
 
     val output = convolve(image)
 

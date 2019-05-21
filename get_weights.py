@@ -30,6 +30,7 @@ if __name__ == '__main__':
                 blobs = layer.blobs
                 # Extract the weights and place them in their proper shape
                 weights_shape = blobs[0].shape.dim
+                print(weights_shape)
                 # Reshape the weights to our desired indexing, reducing the shape of the 
                 # weights from 4 dims to 2 dims so that it can be placed in a csv file
                 weights = np.asarray(blobs[0].data).reshape(weights_shape)

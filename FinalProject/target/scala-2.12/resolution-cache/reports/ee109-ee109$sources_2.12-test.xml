@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="test"
 		confs="default, compile, runtime, test, provided, optional"
-		date="20190520101244"/>
+		date="20190521144445"/>
 	<dependencies>
 		<module organisation="org.scala-sbt" name="sbt">
 			<revision name="1.2.7" status="release" pubdate="20181130113828" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="44">
@@ -15,7 +15,7 @@
 				<metadata-artifact status="no" details="" size="3398" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/sbt/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/sbt/1.2.7/sbt-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="sbt" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="4812" time="13" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/sbt/srcs/sbt-1.2.7-sources.jar">
+					<artifact name="sbt" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="4812" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/sbt/srcs/sbt-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/sbt/1.2.7/sbt-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -27,7 +27,7 @@
 				<metadata-artifact status="no" details="" size="6148" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/main_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/main_2.12/1.2.7/main_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="main_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="240848" time="90" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/main_2.12/srcs/main_2.12-1.2.7-sources.jar">
+					<artifact name="main_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="240848" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/main_2.12/srcs/main_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/main_2.12/1.2.7/main_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -39,7 +39,7 @@
 				<metadata-artifact status="no" details="" size="3260" time="0" location="/Users/rondomingo/.ivy2/cache/com.github.cb372/scalacache-caffeine_2.12/ivy-0.20.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/cb372/scalacache-caffeine_2.12/0.20.0/scalacache-caffeine_2.12-0.20.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.20.0" rev-constraint-default="0.20.0" rev-constraint-dynamic="0.20.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scalacache-caffeine_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1534" time="17" location="/Users/rondomingo/.ivy2/cache/com.github.cb372/scalacache-caffeine_2.12/srcs/scalacache-caffeine_2.12-0.20.0-sources.jar">
+					<artifact name="scalacache-caffeine_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1534" time="0" location="/Users/rondomingo/.ivy2/cache/com.github.cb372/scalacache-caffeine_2.12/srcs/scalacache-caffeine_2.12-0.20.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/cb372/scalacache-caffeine_2.12/0.20.0/scalacache-caffeine_2.12-0.20.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -51,7 +51,7 @@
 				<metadata-artifact status="no" details="" size="5353" time="0" location="/Users/rondomingo/.ivy2/cache/com.github.ben-manes.caffeine/caffeine/ivy-2.5.6.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/ben-manes/caffeine/caffeine/2.5.6/caffeine-2.5.6.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.5.6" rev-constraint-default="2.5.6" rev-constraint-dynamic="2.5.6" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="caffeine" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="156369" time="29" location="/Users/rondomingo/.ivy2/cache/com.github.ben-manes.caffeine/caffeine/srcs/caffeine-2.5.6-sources.jar">
+					<artifact name="caffeine" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="156369" time="0" location="/Users/rondomingo/.ivy2/cache/com.github.ben-manes.caffeine/caffeine/srcs/caffeine-2.5.6-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/ben-manes/caffeine/caffeine/2.5.6/caffeine-2.5.6-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -63,7 +63,7 @@
 				<metadata-artifact status="no" details="" size="3727" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/scripted-sbt-redux_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/scripted-sbt-redux_2.12/1.2.7/scripted-sbt-redux_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scripted-sbt-redux_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="12076" time="16" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/scripted-sbt-redux_2.12/srcs/scripted-sbt-redux_2.12-1.2.7-sources.jar">
+					<artifact name="scripted-sbt-redux_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="12076" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/scripted-sbt-redux_2.12/srcs/scripted-sbt-redux_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/scripted-sbt-redux_2.12/1.2.7/scripted-sbt-redux_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -75,7 +75,7 @@
 				<metadata-artifact status="no" details="" size="3108" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-scripted_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-scripted_2.12/1.2.4/util-scripted_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-scripted_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="9031" time="66" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-scripted_2.12/srcs/util-scripted_2.12-1.2.4-sources.jar">
+					<artifact name="util-scripted_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="9031" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-scripted_2.12/srcs/util-scripted_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-scripted_2.12/1.2.4/util-scripted_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -87,7 +87,7 @@
 				<metadata-artifact status="no" details="" size="5514" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/actions_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/actions_2.12/1.2.7/actions_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="actions_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="25349" time="13" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/actions_2.12/srcs/actions_2.12-1.2.7-sources.jar">
+					<artifact name="actions_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="25349" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/actions_2.12/srcs/actions_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/actions_2.12/1.2.7/actions_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -99,7 +99,7 @@
 				<metadata-artifact status="no" details="" size="2919" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-tracking_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-tracking_2.12/1.2.4/util-tracking_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-tracking_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="5257" time="12" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-tracking_2.12/srcs/util-tracking_2.12-1.2.4-sources.jar">
+					<artifact name="util-tracking_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="5257" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-tracking_2.12/srcs/util-tracking_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-tracking_2.12/1.2.4/util-tracking_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -111,7 +111,7 @@
 				<metadata-artifact status="no" details="" size="3871" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/run_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/run_2.12/1.2.7/run_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="run_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="18628" time="14" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/run_2.12/srcs/run_2.12-1.2.7-sources.jar">
+					<artifact name="run_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="18628" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/run_2.12/srcs/run_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/run_2.12/1.2.7/run_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -123,7 +123,7 @@
 				<metadata-artifact status="no" details="" size="3703" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc_2.12/1.2.5/zinc_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="15857" time="73" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc_2.12/srcs/zinc_2.12-1.2.5-sources.jar">
+					<artifact name="zinc_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="15857" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc_2.12/srcs/zinc_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc_2.12/1.2.5/zinc_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -135,7 +135,7 @@
 				<metadata-artifact status="no" details="" size="3305" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-persist_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-persist_2.12/1.2.5/zinc-persist_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-persist_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="48657" time="16" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-persist_2.12/srcs/zinc-persist_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-persist_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="48657" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-persist_2.12/srcs/zinc-persist_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-persist_2.12/1.2.5/zinc-persist_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -147,7 +147,7 @@
 				<metadata-artifact status="no" details="" size="2824" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/sbinary_2.12/ivy-0.5.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/sbinary_2.12/0.5.0/sbinary_2.12-0.5.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.5.0" rev-constraint-default="0.5.0" rev-constraint-dynamic="0.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="sbinary_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="11247" time="16" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/sbinary_2.12/srcs/sbinary_2.12-0.5.0-sources.jar">
+					<artifact name="sbinary_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="11247" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/sbinary_2.12/srcs/sbinary_2.12-0.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/sbinary_2.12/0.5.0/sbinary_2.12-0.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -159,7 +159,7 @@
 				<metadata-artifact status="no" details="" size="3324" time="0" location="/Users/rondomingo/.ivy2/cache/com.trueaccord.scalapb/scalapb-runtime_2.12/ivy-0.6.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/trueaccord/scalapb/scalapb-runtime_2.12/0.6.0/scalapb-runtime_2.12-0.6.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.6.0" rev-constraint-default="0.6.0" rev-constraint-dynamic="0.6.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scalapb-runtime_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="215723" time="36" location="/Users/rondomingo/.ivy2/cache/com.trueaccord.scalapb/scalapb-runtime_2.12/srcs/scalapb-runtime_2.12-0.6.0-sources.jar">
+					<artifact name="scalapb-runtime_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="215723" time="0" location="/Users/rondomingo/.ivy2/cache/com.trueaccord.scalapb/scalapb-runtime_2.12/srcs/scalapb-runtime_2.12-0.6.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/trueaccord/scalapb/scalapb-runtime_2.12/0.6.0/scalapb-runtime_2.12-0.6.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -171,7 +171,7 @@
 				<metadata-artifact status="no" details="" size="3355" time="0" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/fastparse_2.12/ivy-0.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/lihaoyi/fastparse_2.12/0.4.2/fastparse_2.12-0.4.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.4.2" rev-constraint-default="0.4.2" rev-constraint-dynamic="0.4.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="fastparse_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="22896" time="73" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/fastparse_2.12/srcs/fastparse_2.12-0.4.2-sources.jar">
+					<artifact name="fastparse_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="22896" time="0" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/fastparse_2.12/srcs/fastparse_2.12-0.4.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/lihaoyi/fastparse_2.12/0.4.2/fastparse_2.12-0.4.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -183,7 +183,7 @@
 				<metadata-artifact status="no" details="" size="3961" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-core_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-core_2.12/1.2.5/zinc-core_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="54318" time="21" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-core_2.12/srcs/zinc-core_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="54318" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-core_2.12/srcs/zinc-core_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-core_2.12/1.2.5/zinc-core_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -195,7 +195,7 @@
 				<metadata-artifact status="no" details="" size="3062" time="0" location="/Users/rondomingo/.ivy2/cache/com.github.cb372/scalacache-core_2.12/ivy-0.20.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/cb372/scalacache-core_2.12/0.20.0/scalacache-core_2.12-0.20.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.20.0" rev-constraint-default="0.20.0" rev-constraint-dynamic="0.20.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scalacache-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="20503" time="15" location="/Users/rondomingo/.ivy2/cache/com.github.cb372/scalacache-core_2.12/srcs/scalacache-core_2.12-0.20.0-sources.jar">
+					<artifact name="scalacache-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="20503" time="0" location="/Users/rondomingo/.ivy2/cache/com.github.cb372/scalacache-core_2.12/srcs/scalacache-core_2.12-0.20.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/cb372/scalacache-core_2.12/0.20.0/scalacache-core_2.12-0.20.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -207,7 +207,7 @@
 				<metadata-artifact status="no" details="" size="3321" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/librarymanagement-ivy_2.12/ivy-1.2.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/librarymanagement-ivy_2.12/1.2.3/librarymanagement-ivy_2.12-1.2.3.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.3" rev-constraint-default="1.2.3" rev-constraint-dynamic="1.2.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="librarymanagement-ivy_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="90980" time="16" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/librarymanagement-ivy_2.12/srcs/librarymanagement-ivy_2.12-1.2.3-sources.jar">
+					<artifact name="librarymanagement-ivy_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="90980" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/librarymanagement-ivy_2.12/srcs/librarymanagement-ivy_2.12-1.2.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/librarymanagement-ivy_2.12/1.2.3/librarymanagement-ivy_2.12-1.2.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -219,7 +219,7 @@
 				<metadata-artifact status="no" details="" size="2759" time="0" location="/Users/rondomingo/.ivy2/cache/com.trueaccord.lenses/lenses_2.12/ivy-0.4.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/trueaccord/lenses/lenses_2.12/0.4.12/lenses_2.12-0.4.12.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.4.12" rev-constraint-default="0.4.12" rev-constraint-dynamic="0.4.12" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="lenses_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="2705" time="14" location="/Users/rondomingo/.ivy2/cache/com.trueaccord.lenses/lenses_2.12/srcs/lenses_2.12-0.4.12-sources.jar">
+					<artifact name="lenses_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2705" time="0" location="/Users/rondomingo/.ivy2/cache/com.trueaccord.lenses/lenses_2.12/srcs/lenses_2.12-0.4.12-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/trueaccord/lenses/lenses_2.12/0.4.12/lenses_2.12-0.4.12-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -230,7 +230,7 @@
 				<metadata-artifact status="no" details="" size="5164" time="0" location="/Users/rondomingo/.ivy2/cache/com.google.protobuf/protobuf-java/ivy-3.3.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.3.1/protobuf-java-3.3.1.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="3.3.1" rev-constraint-default="3.3.1" rev-constraint-dynamic="3.3.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="protobuf-java" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="669226" time="48" location="/Users/rondomingo/.ivy2/cache/com.google.protobuf/protobuf-java/srcs/protobuf-java-3.3.1-sources.jar">
+					<artifact name="protobuf-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="669226" time="0" location="/Users/rondomingo/.ivy2/cache/com.google.protobuf/protobuf-java/srcs/protobuf-java-3.3.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/3.3.1/protobuf-java-3.3.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -242,7 +242,7 @@
 				<metadata-artifact status="no" details="" size="3229" time="0" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/fastparse-utils_2.12/ivy-0.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/lihaoyi/fastparse-utils_2.12/0.4.2/fastparse-utils_2.12-0.4.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.4.2" rev-constraint-default="0.4.2" rev-constraint-dynamic="0.4.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="fastparse-utils_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="8522" time="14" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/fastparse-utils_2.12/srcs/fastparse-utils_2.12-0.4.2-sources.jar">
+					<artifact name="fastparse-utils_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="8522" time="0" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/fastparse-utils_2.12/srcs/fastparse-utils_2.12-0.4.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/lihaoyi/fastparse-utils_2.12/0.4.2/fastparse-utils_2.12-0.4.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -254,7 +254,7 @@
 				<metadata-artifact status="no" details="" size="2822" time="0" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/sourcecode_2.12/ivy-0.1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.1.3/sourcecode_2.12-0.1.3.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.1.3" rev-constraint-default="0.1.3" rev-constraint-dynamic="0.1.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="sourcecode_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="2593" time="15" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/sourcecode_2.12/srcs/sourcecode_2.12-0.1.3-sources.jar">
+					<artifact name="sourcecode_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2593" time="0" location="/Users/rondomingo/.ivy2/cache/com.lihaoyi/sourcecode_2.12/srcs/sourcecode_2.12-0.1.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/lihaoyi/sourcecode_2.12/0.1.3/sourcecode_2.12-0.1.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -266,7 +266,7 @@
 				<metadata-artifact status="no" details="" size="3437" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/logic_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/logic_2.12/1.2.7/logic_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="logic_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="5452" time="40" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/logic_2.12/srcs/logic_2.12-1.2.7-sources.jar">
+					<artifact name="logic_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="5452" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/logic_2.12/srcs/logic_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/logic_2.12/1.2.7/logic_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -278,7 +278,7 @@
 				<metadata-artifact status="no" details="" size="3556" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt.ivy/ivy/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-sbt/ivy/ivy/2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310" rev-constraint-default="2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310" rev-constraint-dynamic="2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="ivy" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="886994" time="66" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt.ivy/ivy/srcs/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310-sources.jar">
+					<artifact name="ivy" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="886994" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt.ivy/ivy/srcs/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/ivy/ivy/2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310/ivy-2.3.0-sbt-b18f59ea3bc914a297bb6f1a4f7fb0ace399e310-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -290,7 +290,7 @@
 				<metadata-artifact status="no" details="" size="3164" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-compile_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-compile_2.12/1.2.5/zinc-compile_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-compile_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1957" time="79" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-compile_2.12/srcs/zinc-compile_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-compile_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1957" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-compile_2.12/srcs/zinc-compile_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-compile_2.12/1.2.5/zinc-compile_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -302,7 +302,7 @@
 				<metadata-artifact status="no" details="" size="2676" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/scripted-plugin_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/scripted-plugin_2.12/1.2.7/scripted-plugin_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scripted-plugin_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="632" time="19" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/scripted-plugin_2.12/srcs/scripted-plugin_2.12-1.2.7-sources.jar">
+					<artifact name="scripted-plugin_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="632" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/scripted-plugin_2.12/srcs/scripted-plugin_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/scripted-plugin_2.12/1.2.7/scripted-plugin_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -314,7 +314,7 @@
 				<metadata-artifact status="no" details="" size="3840" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/testing_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/testing_2.12/1.2.7/testing_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="testing_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="13617" time="26" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/testing_2.12/srcs/testing_2.12-1.2.7-sources.jar">
+					<artifact name="testing_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="13617" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/testing_2.12/srcs/testing_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/testing_2.12/1.2.7/testing_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -326,7 +326,7 @@
 				<metadata-artifact status="no" details="" size="2653" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/test-agent/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/test-agent/1.2.7/test-agent-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="test-agent" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="6728" time="17" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/test-agent/srcs/test-agent-1.2.7-sources.jar">
+					<artifact name="test-agent" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6728" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/test-agent/srcs/test-agent-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/test-agent/1.2.7/test-agent-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -338,7 +338,7 @@
 				<metadata-artifact status="no" details="" size="2589" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/test-interface/ivy-1.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0" rev-constraint-default="1.0" rev-constraint-dynamic="1.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="test-interface" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="18792" time="117" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/test-interface/srcs/test-interface-1.0-sources.jar">
+					<artifact name="test-interface" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="18792" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/test-interface/srcs/test-interface-1.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -349,7 +349,7 @@
 				<metadata-artifact status="no" details="" size="38177" time="0" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-slf4j-impl/ivy-2.11.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.1/log4j-slf4j-impl-2.11.1.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="log4j-slf4j-impl" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="23395" time="74" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-slf4j-impl/srcs/log4j-slf4j-impl-2.11.1-sources.jar">
+					<artifact name="log4j-slf4j-impl" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="23395" time="0" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-slf4j-impl/srcs/log4j-slf4j-impl-2.11.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.11.1/log4j-slf4j-impl-2.11.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -361,7 +361,7 @@
 				<metadata-artifact status="no" details="" size="4787" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/main-settings_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/main-settings_2.12/1.2.7/main-settings_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="main-settings_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="40558" time="41" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/main-settings_2.12/srcs/main-settings_2.12-1.2.7-sources.jar">
+					<artifact name="main-settings_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="40558" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/main-settings_2.12/srcs/main-settings_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/main-settings_2.12/1.2.7/main-settings_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -373,7 +373,7 @@
 				<metadata-artifact status="no" details="" size="2648" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-relation_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-relation_2.12/1.2.4/util-relation_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-relation_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="2933" time="13" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-relation_2.12/srcs/util-relation_2.12-1.2.4-sources.jar">
+					<artifact name="util-relation_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2933" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-relation_2.12/srcs/util-relation_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-relation_2.12/1.2.4/util-relation_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -385,7 +385,7 @@
 				<metadata-artifact status="no" details="" size="2964" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/core-macros_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/core-macros_2.12/1.2.7/core-macros_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="core-macros_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="14940" time="19" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/core-macros_2.12/srcs/core-macros_2.12-1.2.7-sources.jar">
+					<artifact name="core-macros_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="14940" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/core-macros_2.12/srcs/core-macros_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/core-macros_2.12/1.2.7/core-macros_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -397,7 +397,7 @@
 				<metadata-artifact status="no" details="" size="3876" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/task-system_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/task-system_2.12/1.2.7/task-system_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="task-system_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="9691" time="79" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/task-system_2.12/srcs/task-system_2.12-1.2.7-sources.jar">
+					<artifact name="task-system_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="9691" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/task-system_2.12/srcs/task-system_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/task-system_2.12/1.2.7/task-system_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -409,7 +409,7 @@
 				<metadata-artifact status="no" details="" size="3212" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-cache_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-cache_2.12/1.2.4/util-cache_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-cache_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="7178" time="74" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-cache_2.12/srcs/util-cache_2.12-1.2.4-sources.jar">
+					<artifact name="util-cache_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="7178" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-cache_2.12/srcs/util-cache_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-cache_2.12/1.2.4/util-cache_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -421,7 +421,7 @@
 				<metadata-artifact status="no" details="" size="3196" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-murmurhash_2.12/ivy-0.8.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/eed3si9n/sjson-new-murmurhash_2.12/0.8.2/sjson-new-murmurhash_2.12-0.8.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.8.2" rev-constraint-default="0.8.2" rev-constraint-dynamic="0.8.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="sjson-new-murmurhash_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1515" time="14" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-murmurhash_2.12/srcs/sjson-new-murmurhash_2.12-0.8.2-sources.jar">
+					<artifact name="sjson-new-murmurhash_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1515" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-murmurhash_2.12/srcs/sjson-new-murmurhash_2.12-0.8.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/eed3si9n/sjson-new-murmurhash_2.12/0.8.2/sjson-new-murmurhash_2.12-0.8.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -433,7 +433,7 @@
 				<metadata-artifact status="no" details="" size="3436" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/tasks_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/tasks_2.12/1.2.7/tasks_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="tasks_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="12585" time="124" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/tasks_2.12/srcs/tasks_2.12-1.2.7-sources.jar">
+					<artifact name="tasks_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="12585" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/tasks_2.12/srcs/tasks_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/tasks_2.12/1.2.7/tasks_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -445,7 +445,7 @@
 				<metadata-artifact status="no" details="" size="4785" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/command_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/command_2.12/1.2.7/command_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="command_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="34336" time="16" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/command_2.12/srcs/command_2.12-1.2.7-sources.jar">
+					<artifact name="command_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="34336" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/command_2.12/srcs/command_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/command_2.12/1.2.7/command_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -457,7 +457,7 @@
 				<metadata-artifact status="no" details="" size="4870" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/librarymanagement-core_2.12/ivy-1.2.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/librarymanagement-core_2.12/1.2.3/librarymanagement-core_2.12-1.2.3.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.3" rev-constraint-default="1.2.3" rev-constraint-dynamic="1.2.3" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="librarymanagement-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="140391" time="31" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/librarymanagement-core_2.12/srcs/librarymanagement-core_2.12-1.2.3-sources.jar">
+					<artifact name="librarymanagement-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="140391" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/librarymanagement-core_2.12/srcs/librarymanagement-core_2.12-1.2.3-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/librarymanagement-core_2.12/1.2.3/librarymanagement-core_2.12-1.2.3-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -468,7 +468,7 @@
 				<metadata-artifact status="no" details="" size="6328" time="0" location="/Users/rondomingo/.ivy2/cache/com.squareup.okhttp3/okhttp-urlconnection/ivy-3.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp-urlconnection/3.7.0/okhttp-urlconnection-3.7.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="3.7.0" rev-constraint-default="3.7.0" rev-constraint-dynamic="3.7.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="okhttp-urlconnection" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="19969" time="13" location="/Users/rondomingo/.ivy2/cache/com.squareup.okhttp3/okhttp-urlconnection/srcs/okhttp-urlconnection-3.7.0-sources.jar">
+					<artifact name="okhttp-urlconnection" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="19969" time="0" location="/Users/rondomingo/.ivy2/cache/com.squareup.okhttp3/okhttp-urlconnection/srcs/okhttp-urlconnection-3.7.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp-urlconnection/3.7.0/okhttp-urlconnection-3.7.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -480,7 +480,7 @@
 				<metadata-artifact status="no" details="" size="2986" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/gigahorse-okhttp_2.12/ivy-0.3.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/eed3si9n/gigahorse-okhttp_2.12/0.3.0/gigahorse-okhttp_2.12-0.3.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.3.0" rev-constraint-default="0.3.0" rev-constraint-dynamic="0.3.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="gigahorse-okhttp_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="11099" time="13" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/gigahorse-okhttp_2.12/srcs/gigahorse-okhttp_2.12-0.3.0-sources.jar">
+					<artifact name="gigahorse-okhttp_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="11099" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/gigahorse-okhttp_2.12/srcs/gigahorse-okhttp_2.12-0.3.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/eed3si9n/gigahorse-okhttp_2.12/0.3.0/gigahorse-okhttp_2.12-0.3.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -491,7 +491,7 @@
 				<metadata-artifact status="no" details="" size="6006" time="0" location="/Users/rondomingo/.ivy2/cache/com.squareup.okhttp3/okhttp/ivy-3.7.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/3.7.0/okhttp-3.7.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="3.7.0" rev-constraint-default="3.7.0" rev-constraint-dynamic="3.7.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="okhttp" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="303871" time="32" location="/Users/rondomingo/.ivy2/cache/com.squareup.okhttp3/okhttp/srcs/okhttp-3.7.0-sources.jar">
+					<artifact name="okhttp" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="303871" time="0" location="/Users/rondomingo/.ivy2/cache/com.squareup.okhttp3/okhttp/srcs/okhttp-3.7.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp/3.7.0/okhttp-3.7.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -502,7 +502,7 @@
 				<metadata-artifact status="no" details="" size="4467" time="0" location="/Users/rondomingo/.ivy2/cache/com.squareup.okio/okio/ivy-1.12.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/squareup/okio/okio/1.12.0/okio-1.12.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.12.0" rev-constraint-default="1.12.0" rev-constraint-dynamic="1.12.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="okio" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="68920" time="53" location="/Users/rondomingo/.ivy2/cache/com.squareup.okio/okio/srcs/okio-1.12.0-sources.jar">
+					<artifact name="okio" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="68920" time="0" location="/Users/rondomingo/.ivy2/cache/com.squareup.okio/okio/srcs/okio-1.12.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/squareup/okio/okio/1.12.0/okio-1.12.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -514,7 +514,7 @@
 				<metadata-artifact status="no" details="" size="3124" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/gigahorse-core_2.12/ivy-0.3.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/eed3si9n/gigahorse-core_2.12/0.3.0/gigahorse-core_2.12-0.3.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.3.0" rev-constraint-default="0.3.0" rev-constraint-dynamic="0.3.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="gigahorse-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="18937" time="19" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/gigahorse-core_2.12/srcs/gigahorse-core_2.12-0.3.0-sources.jar">
+					<artifact name="gigahorse-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="18937" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/gigahorse-core_2.12/srcs/gigahorse-core_2.12-0.3.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/eed3si9n/gigahorse-core_2.12/0.3.0/gigahorse-core_2.12-0.3.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -526,7 +526,7 @@
 				<metadata-artifact status="no" details="" size="2397" time="0" location="/Users/rondomingo/.ivy2/cache/org.reactivestreams/reactive-streams/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="reactive-streams" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="3130" time="16" location="/Users/rondomingo/.ivy2/cache/org.reactivestreams/reactive-streams/srcs/reactive-streams-1.0.0-sources.jar">
+					<artifact name="reactive-streams" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="3130" time="0" location="/Users/rondomingo/.ivy2/cache/org.reactivestreams/reactive-streams/srcs/reactive-streams-1.0.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/reactivestreams/reactive-streams/1.0.0/reactive-streams-1.0.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -538,7 +538,7 @@
 				<metadata-artifact status="no" details="" size="2857" time="0" location="/Users/rondomingo/.ivy2/cache/com.typesafe/ssl-config-core_2.12/ivy-0.2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.2/ssl-config-core_2.12-0.2.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.2.2" rev-constraint-default="0.2.2" rev-constraint-dynamic="0.2.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="ssl-config-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="49384" time="73" location="/Users/rondomingo/.ivy2/cache/com.typesafe/ssl-config-core_2.12/srcs/ssl-config-core_2.12-0.2.2-sources.jar">
+					<artifact name="ssl-config-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="49384" time="0" location="/Users/rondomingo/.ivy2/cache/com.typesafe/ssl-config-core_2.12/srcs/ssl-config-core_2.12-0.2.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/ssl-config-core_2.12/0.2.2/ssl-config-core_2.12-0.2.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -550,7 +550,7 @@
 				<metadata-artifact status="no" details="" size="2734" time="0" location="/Users/rondomingo/.ivy2/cache/com.typesafe/config/ivy-1.2.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/config/1.2.0/config-1.2.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.0" rev-constraint-default="1.2.0" rev-constraint-dynamic="1.2.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="130916" time="24" location="/Users/rondomingo/.ivy2/cache/com.typesafe/config/srcs/config-1.2.0-sources.jar">
+					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="130916" time="0" location="/Users/rondomingo/.ivy2/cache/com.typesafe/config/srcs/config-1.2.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/config/1.2.0/config-1.2.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -562,7 +562,7 @@
 				<metadata-artifact status="no" details="" size="3103" time="0" location="/Users/rondomingo/.ivy2/cache/com.jcraft/jsch/ivy-0.1.54.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/jcraft/jsch/0.1.54/jsch-0.1.54.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.1.54" rev-constraint-default="0.1.54" rev-constraint-dynamic="0.1.54" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jsch" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="274824" time="96" location="/Users/rondomingo/.ivy2/cache/com.jcraft/jsch/srcs/jsch-0.1.54-sources.jar">
+					<artifact name="jsch" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="274824" time="0" location="/Users/rondomingo/.ivy2/cache/com.jcraft/jsch/srcs/jsch-0.1.54-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/jcraft/jsch/0.1.54/jsch-0.1.54-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -574,7 +574,7 @@
 				<metadata-artifact status="no" details="" size="2939" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.12.7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.7/scala-compiler-2.12.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.12.7" rev-constraint-default="2.12.7" rev-constraint-dynamic="2.12.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scala-compiler" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1845974" time="96" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.12.7-sources.jar">
+					<artifact name="scala-compiler" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1845974" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.12.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.7/scala-compiler-2.12.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -586,7 +586,7 @@
 				<metadata-artifact status="no" details="" size="3137" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scala-xml_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="109199" time="83" location="/Users/rondomingo/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/srcs/scala-xml_2.12-1.0.6-sources.jar">
+					<artifact name="scala-xml_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="109199" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/srcs/scala-xml_2.12-1.0.6-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -598,7 +598,7 @@
 				<metadata-artifact status="no" details="" size="2559" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/template-resolver/ivy-0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/template-resolver/0.1/template-resolver-0.1.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.1" rev-constraint-default="0.1" rev-constraint-dynamic="0.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="template-resolver" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1113" time="13" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/template-resolver/srcs/template-resolver-0.1-sources.jar">
+					<artifact name="template-resolver" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1113" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/template-resolver/srcs/template-resolver-0.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/template-resolver/0.1/template-resolver-0.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -611,7 +611,7 @@
 				<metadata-artifact status="no" details="" size="2458" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/launcher-interface/ivy-1.0.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.0.4/launcher-interface-1.0.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="launcher-interface" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="11216" time="50" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/launcher-interface/srcs/launcher-interface-1.0.4-sources.jar">
+					<artifact name="launcher-interface" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="11216" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/launcher-interface/srcs/launcher-interface-1.0.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.0.4/launcher-interface-1.0.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -623,7 +623,7 @@
 				<metadata-artifact status="no" details="" size="3898" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/protocol_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/protocol_2.12/1.2.7/protocol_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="protocol_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="9818" time="19" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/protocol_2.12/srcs/protocol_2.12-1.2.7-sources.jar">
+					<artifact name="protocol_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="9818" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/protocol_2.12/srcs/protocol_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/protocol_2.12/1.2.7/protocol_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -635,7 +635,7 @@
 				<metadata-artifact status="no" details="" size="4019" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-logging_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-logging_2.12/1.2.4/util-logging_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-logging_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="28940" time="13" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-logging_2.12/srcs/util-logging_2.12-1.2.4-sources.jar">
+					<artifact name="util-logging_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="28940" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-logging_2.12/srcs/util-logging_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-logging_2.12/1.2.4/util-logging_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -647,7 +647,7 @@
 				<metadata-artifact status="no" details="" size="2346" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-interface/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-interface/1.2.4/util-interface-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-interface" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="2088" time="81" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-interface/srcs/util-interface-1.2.4-sources.jar">
+					<artifact name="util-interface" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2088" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-interface/srcs/util-interface-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-interface/1.2.4/util-interface-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -659,7 +659,7 @@
 				<metadata-artifact status="no" details="" size="2813" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt.ipcsocket/ipcsocket/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-sbt/ipcsocket/ipcsocket/1.0.0/ipcsocket-1.0.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="ipcsocket" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="13014" time="74" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt.ipcsocket/ipcsocket/srcs/ipcsocket-1.0.0-sources.jar">
+					<artifact name="ipcsocket" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="13014" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt.ipcsocket/ipcsocket/srcs/ipcsocket-1.0.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/ipcsocket/ipcsocket/1.0.0/ipcsocket-1.0.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -671,7 +671,7 @@
 				<metadata-artifact status="no" details="" size="3715" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/completion_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/completion_2.12/1.2.7/completion_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="completion_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="30205" time="80" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/completion_2.12/srcs/completion_2.12-1.2.7-sources.jar">
+					<artifact name="completion_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="30205" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/completion_2.12/srcs/completion_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/completion_2.12/1.2.7/completion_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -683,7 +683,7 @@
 				<metadata-artifact status="no" details="" size="2526" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-control_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-control_2.12/1.2.4/util-control_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-control_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="2386" time="14" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-control_2.12/srcs/util-control_2.12-1.2.4-sources.jar">
+					<artifact name="util-control_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2386" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-control_2.12/srcs/util-control_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-control_2.12/1.2.4/util-control_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -695,7 +695,7 @@
 				<metadata-artifact status="no" details="" size="3274" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/io_2.12/ivy-1.2.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/io_2.12/1.2.2/io_2.12-1.2.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.2" rev-constraint-default="1.2.2" rev-constraint-dynamic="1.2.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="io_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="46002" time="90" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/io_2.12/srcs/io_2.12-1.2.2-sources.jar">
+					<artifact name="io_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="46002" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/io_2.12/srcs/io_2.12-1.2.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/io_2.12/1.2.2/io_2.12-1.2.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -708,7 +708,7 @@
 				<metadata-artifact status="no" details="" size="2633" time="0" location="/Users/rondomingo/.ivy2/cache/net.java.dev.jna/jna-platform/ivy-4.5.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/java/dev/jna/jna-platform/4.5.0/jna-platform-4.5.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="4.5.0" rev-constraint-default="4.5.0" rev-constraint-dynamic="4.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jna-platform" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="899373" time="61" location="/Users/rondomingo/.ivy2/cache/net.java.dev.jna/jna-platform/srcs/jna-platform-4.5.0-sources.jar">
+					<artifact name="jna-platform" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="899373" time="0" location="/Users/rondomingo/.ivy2/cache/net.java.dev.jna/jna-platform/srcs/jna-platform-4.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/java/dev/jna/jna-platform/4.5.0/jna-platform-4.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -721,7 +721,7 @@
 				<metadata-artifact status="no" details="" size="2441" time="0" location="/Users/rondomingo/.ivy2/cache/net.java.dev.jna/jna/ivy-4.5.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/java/dev/jna/jna/4.5.0/jna-4.5.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="4.5.0" rev-constraint-default="4.5.0" rev-constraint-dynamic="4.5.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jna" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="146994" time="28" location="/Users/rondomingo/.ivy2/cache/net.java.dev.jna/jna/srcs/jna-4.5.0-sources.jar">
+					<artifact name="jna" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="146994" time="0" location="/Users/rondomingo/.ivy2/cache/net.java.dev.jna/jna/srcs/jna-4.5.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/java/dev/jna/jna/4.5.0/jna-4.5.0-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -733,7 +733,7 @@
 				<metadata-artifact status="no" details="" size="2903" time="0" location="/Users/rondomingo/.ivy2/cache/com.swoval/apple-file-events/ivy-1.3.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/swoval/apple-file-events/1.3.2/apple-file-events-1.3.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.3.2" rev-constraint-default="1.3.2" rev-constraint-dynamic="1.3.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="apple-file-events" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="5163" time="12" location="/Users/rondomingo/.ivy2/cache/com.swoval/apple-file-events/srcs/apple-file-events-1.3.2-sources.jar">
+					<artifact name="apple-file-events" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="5163" time="0" location="/Users/rondomingo/.ivy2/cache/com.swoval/apple-file-events/srcs/apple-file-events-1.3.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/swoval/apple-file-events/1.3.2/apple-file-events-1.3.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -745,7 +745,7 @@
 				<metadata-artifact status="no" details="" size="5183" time="0" location="/Users/rondomingo/.ivy2/cache/jline/jline/ivy-2.14.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.14.6" rev-constraint-default="2.14.6" rev-constraint-dynamic="2.14.6" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jline" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="110450" time="17" location="/Users/rondomingo/.ivy2/cache/jline/jline/srcs/jline-2.14.6-sources.jar">
+					<artifact name="jline" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="110450" time="0" location="/Users/rondomingo/.ivy2/cache/jline/jline/srcs/jline-2.14.6-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/jline/jline/2.14.6/jline-2.14.6-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -757,7 +757,7 @@
 				<metadata-artifact status="no" details="" size="3456" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/collections_2.12/ivy-1.2.7.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/collections_2.12/1.2.7/collections_2.12-1.2.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.7" rev-constraint-default="1.2.7" rev-constraint-dynamic="1.2.7" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="collections_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="31086" time="21" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/collections_2.12/srcs/collections_2.12-1.2.7-sources.jar">
+					<artifact name="collections_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="31086" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/collections_2.12/srcs/collections_2.12-1.2.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/collections_2.12/1.2.7/collections_2.12-1.2.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -769,7 +769,7 @@
 				<metadata-artifact status="no" details="" size="3487" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-scalajson_2.12/ivy-0.8.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/eed3si9n/sjson-new-scalajson_2.12/0.8.2/sjson-new-scalajson_2.12-0.8.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.8.2" rev-constraint-default="0.8.2" rev-constraint-dynamic="0.8.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="sjson-new-scalajson_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="6068" time="117" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-scalajson_2.12/srcs/sjson-new-scalajson_2.12-0.8.2-sources.jar">
+					<artifact name="sjson-new-scalajson_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6068" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-scalajson_2.12/srcs/sjson-new-scalajson_2.12-0.8.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/eed3si9n/sjson-new-scalajson_2.12/0.8.2/sjson-new-scalajson_2.12-0.8.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -781,7 +781,7 @@
 				<metadata-artifact status="no" details="" size="3040" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-core_2.12/ivy-0.8.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/eed3si9n/sjson-new-core_2.12/0.8.2/sjson-new-core_2.12-0.8.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.8.2" rev-constraint-default="0.8.2" rev-constraint-dynamic="0.8.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="sjson-new-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="42221" time="118" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-core_2.12/srcs/sjson-new-core_2.12-0.8.2-sources.jar">
+					<artifact name="sjson-new-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="42221" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/sjson-new-core_2.12/srcs/sjson-new-core_2.12-0.8.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/eed3si9n/sjson-new-core_2.12/0.8.2/sjson-new-core_2.12-0.8.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -793,7 +793,7 @@
 				<metadata-artifact status="no" details="" size="2735" time="0" location="/Users/rondomingo/.ivy2/cache/org.spire-math/jawn-parser_2.12/ivy-0.10.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/spire-math/jawn-parser_2.12/0.10.4/jawn-parser_2.12-0.10.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="0.10.4" rev-constraint-default="0.10.4" rev-constraint-dynamic="0.10.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="jawn-parser_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="18474" time="78" location="/Users/rondomingo/.ivy2/cache/org.spire-math/jawn-parser_2.12/srcs/jawn-parser_2.12-0.10.4-sources.jar">
+					<artifact name="jawn-parser_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="18474" time="0" location="/Users/rondomingo/.ivy2/cache/org.spire-math/jawn-parser_2.12/srcs/jawn-parser_2.12-0.10.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/spire-math/jawn-parser_2.12/0.10.4/jawn-parser_2.12-0.10.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -804,7 +804,7 @@
 				<metadata-artifact status="no" details="" size="43481" time="0" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-core/ivy-2.11.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.11.1/log4j-core-2.11.1.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="log4j-core" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1210645" time="66" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-core/srcs/log4j-core-2.11.1-sources.jar">
+					<artifact name="log4j-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1210645" time="0" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-core/srcs/log4j-core-2.11.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.11.1/log4j-core-2.11.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -815,7 +815,7 @@
 				<metadata-artifact status="no" details="" size="5287" time="0" location="/Users/rondomingo/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.25.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="slf4j-api" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="55539" time="15" location="/Users/rondomingo/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.25-sources.jar">
+					<artifact name="slf4j-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="55539" time="0" location="/Users/rondomingo/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.25-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -827,7 +827,7 @@
 				<metadata-artifact status="no" details="" size="2537" time="0" location="/Users/rondomingo/.ivy2/cache/com.lmax/disruptor/ivy-3.4.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/lmax/disruptor/3.4.2/disruptor-3.4.2.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="3.4.2" rev-constraint-default="3.4.2" rev-constraint-dynamic="3.4.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="disruptor" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="81382" time="15" location="/Users/rondomingo/.ivy2/cache/com.lmax/disruptor/srcs/disruptor-3.4.2-sources.jar">
+					<artifact name="disruptor" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="81382" time="0" location="/Users/rondomingo/.ivy2/cache/com.lmax/disruptor/srcs/disruptor-3.4.2-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/lmax/disruptor/3.4.2/disruptor-3.4.2-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -838,7 +838,7 @@
 				<metadata-artifact status="no" details="" size="38270" time="0" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-api/ivy-2.11.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.11.1" rev-constraint-default="2.11.1" rev-constraint-dynamic="2.11.1" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="log4j-api" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="245840" time="25" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-api/srcs/log4j-api-2.11.1-sources.jar">
+					<artifact name="log4j-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="245840" time="0" location="/Users/rondomingo/.ivy2/cache/org.apache.logging.log4j/log4j-api/srcs/log4j-api-2.11.1-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.11.1/log4j-api-2.11.1-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -850,7 +850,7 @@
 				<metadata-artifact status="no" details="" size="3102" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-ivy-integration_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-ivy-integration_2.12/1.2.5/zinc-ivy-integration_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-ivy-integration_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="10000" time="72" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-ivy-integration_2.12/srcs/zinc-ivy-integration_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-ivy-integration_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="10000" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-ivy-integration_2.12/srcs/zinc-ivy-integration_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-ivy-integration_2.12/1.2.5/zinc-ivy-integration_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -862,7 +862,7 @@
 				<metadata-artifact status="no" details="" size="4425" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-compile-core_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-compile-core_2.12/1.2.5/zinc-compile-core_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-compile-core_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="32903" time="75" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-compile-core_2.12/srcs/zinc-compile-core_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-compile-core_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="32903" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-compile-core_2.12/srcs/zinc-compile-core_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-compile-core_2.12/1.2.5/zinc-compile-core_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -874,7 +874,7 @@
 				<metadata-artifact status="no" details="" size="2785" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/ivy-1.0.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.5/scala-parser-combinators_2.12-1.0.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0.5" rev-constraint-default="1.0.5" rev-constraint-dynamic="1.0.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="scala-parser-combinators_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="43232" time="18" location="/Users/rondomingo/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/srcs/scala-parser-combinators_2.12-1.0.5-sources.jar">
+					<artifact name="scala-parser-combinators_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="43232" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/srcs/scala-parser-combinators_2.12-1.0.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.5/scala-parser-combinators_2.12-1.0.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -886,7 +886,7 @@
 				<metadata-artifact status="no" details="" size="3307" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-apiinfo_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-apiinfo_2.12/1.2.5/zinc-apiinfo_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-apiinfo_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="26579" time="17" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-apiinfo_2.12/srcs/zinc-apiinfo_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-apiinfo_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="26579" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-apiinfo_2.12/srcs/zinc-apiinfo_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-apiinfo_2.12/1.2.5/zinc-apiinfo_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -898,7 +898,7 @@
 				<metadata-artifact status="no" details="" size="3296" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-classfile_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-classfile_2.12/1.2.5/zinc-classfile_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-classfile_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="7812" time="13" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-classfile_2.12/srcs/zinc-classfile_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-classfile_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="7812" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-classfile_2.12/srcs/zinc-classfile_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-classfile_2.12/1.2.5/zinc-classfile_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -922,7 +922,7 @@
 				<metadata-artifact status="no" details="" size="3439" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-classpath_2.12/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-classpath_2.12/1.2.5/zinc-classpath_2.12-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="zinc-classpath_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="14117" time="20" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-classpath_2.12/srcs/zinc-classpath_2.12-1.2.5-sources.jar">
+					<artifact name="zinc-classpath_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="14117" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/zinc-classpath_2.12/srcs/zinc-classpath_2.12-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/zinc-classpath_2.12/1.2.5/zinc-classpath_2.12-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -934,7 +934,7 @@
 				<metadata-artifact status="no" details="" size="2655" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/compiler-interface/ivy-1.2.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.2.5/compiler-interface-1.2.5.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.5" rev-constraint-default="1.2.5" rev-constraint-dynamic="1.2.5" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="compiler-interface" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="35776" time="14" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/compiler-interface/srcs/compiler-interface-1.2.5-sources.jar">
+					<artifact name="compiler-interface" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="35776" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/compiler-interface/srcs/compiler-interface-1.2.5-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.2.5/compiler-interface-1.2.5-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -946,7 +946,7 @@
 				<metadata-artifact status="no" details="" size="2908" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/shaded-scalajson_2.12/ivy-1.0.0-M4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/eed3si9n/shaded-scalajson_2.12/1.0.0-M4/shaded-scalajson_2.12-1.0.0-M4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.0.0-M4" rev-constraint-default="1.0.0-M4" rev-constraint-dynamic="1.0.0-M4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="shaded-scalajson_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="6257" time="14" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/shaded-scalajson_2.12/srcs/shaded-scalajson_2.12-1.0.0-M4-sources.jar">
+					<artifact name="shaded-scalajson_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="6257" time="0" location="/Users/rondomingo/.ivy2/cache/com.eed3si9n/shaded-scalajson_2.12/srcs/shaded-scalajson_2.12-1.0.0-M4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/eed3si9n/shaded-scalajson_2.12/1.0.0-M4/shaded-scalajson_2.12-1.0.0-M4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -958,7 +958,7 @@
 				<metadata-artifact status="no" details="" size="2786" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-position_2.12/ivy-1.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/util-position_2.12/1.2.4/util-position_2.12-1.2.4.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="1.2.4" rev-constraint-default="1.2.4" rev-constraint-dynamic="1.2.4" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="util-position_2.12" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="1501" time="69" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-position_2.12/srcs/util-position_2.12-1.2.4-sources.jar">
+					<artifact name="util-position_2.12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1501" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-sbt/util-position_2.12/srcs/util-position_2.12-1.2.4-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-sbt/util-position_2.12/1.2.4/util-position_2.12-1.2.4-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -970,7 +970,7 @@
 				<metadata-artifact status="no" details="" size="2819" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.12.7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.7/scala-reflect-2.12.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.12.7" rev-constraint-default="2.12.7" rev-constraint-dynamic="2.12.7" callerrev="0.1" extra-info.apiURL="http://www.scala-lang.org/api/2.12.7/"/>
 				<artifacts>
-					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="590262" time="34" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.12.7-sources.jar">
+					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="590262" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.12.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.7/scala-reflect-2.12.7-sources.jar"/>
 					</artifact>
 				</artifacts>
@@ -982,7 +982,7 @@
 				<metadata-artifact status="no" details="" size="2653" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.7.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.7/scala-library-2.12.7.pom"/>
 				<caller organisation="ee109" name="ee109$sources_2.12" conf="test, compile, runtime" rev="2.12.7" rev-constraint-default="2.12.7" rev-constraint-dynamic="2.12.7" callerrev="0.1" extra-info.apiURL="http://www.scala-lang.org/api/2.12.7/"/>
 				<artifacts>
-					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="991412" time="45" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.7-sources.jar">
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="991412" time="0" location="/Users/rondomingo/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.7-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.7/scala-library-2.12.7-sources.jar"/>
 					</artifact>
 				</artifacts>

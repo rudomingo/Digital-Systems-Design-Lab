@@ -4,7 +4,7 @@
 		module="ee109$sbt_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190520101237"
+		publication="20190521144432"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

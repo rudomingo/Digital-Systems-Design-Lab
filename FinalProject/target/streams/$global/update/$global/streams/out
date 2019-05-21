@@ -9053,44 +9053,40 @@
 [debug] ignoring unhandled DependencyDescriptorMediator: class sbt.internal.librarymanagement.IvyScalaUtil$OverrideScalaMediator
 [debug] 	resolved ivy file produced in cache
 [debug] :: downloading artifacts ::
+[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#spatial_2.12;1.1-SNAPSHOT!spatial_2.12.jar
 [debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#emul_2.12;1.1-SNAPSHOT!emul_2.12.jar
-[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#models_2.12;1.1-SNAPSHOT!models_2.12.jar
+[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#forge_2.12;1.1-SNAPSHOT!forge_2.12.jar
+[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#argon_2.12;1.1-SNAPSHOT!argon_2.12.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.12.7!scala-library.jar
+[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#models_2.12;1.1-SNAPSHOT!models_2.12.jar
 [debug] 	[NOT REQUIRED] org.scalatest#scalatest_2.12;3.0.5!scalatest_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] com.github.scopt#scopt_2.12;3.7.0!scopt_2.12.jar
+[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#poly_2.12;1.1-SNAPSHOT!poly_2.12.jar
 [debug] 	[NOT REQUIRED] com.github.pureconfig#pureconfig_2.12;0.9.2!pureconfig_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.1.0!scala-xml_2.12.jar(bundle)
-[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#utils_2.12;1.1-SNAPSHOT!utils_2.12.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.12.7!scala-reflect.jar
+[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#utils_2.12;1.1-SNAPSHOT!utils_2.12.jar
 [debug] 	[NOT REQUIRED] org.scalactic#scalactic_2.12;3.0.5!scalactic_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.12;1.0.6!scala-xml_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] com.github.pureconfig#pureconfig-macros_2.12;0.9.2!pureconfig-macros_2.12.jar
-[debug] 	[NOT REQUIRED] com.chuusai#shapeless_2.12;2.3.3!shapeless_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] com.typesafe#config;1.3.3!config.jar(bundle)
+[debug] 	[NOT REQUIRED] com.chuusai#shapeless_2.12;2.3.3!shapeless_2.12.jar(bundle)
 [debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.12.7!scala-compiler.jar
 [debug] 	[NOT REQUIRED] org.scalamacros#paradise_2.12.7;2.1.0!paradise_2.12.7.jar
 [debug] 	[NOT REQUIRED] org.typelevel#macro-compat_2.12;1.1.1!macro-compat_2.12.jar
 [debug] 	[NOT REQUIRED] jline#jline;2.14.6!jline.jar
-[debug] 		tried /Users/rondomingo/.ivy2/local/edu.stanford.cs.dawn/forge_2.12/1.1-SNAPSHOT/jars/forge_2.12.jar
-[debug] 		tried /Users/rondomingo/.ivy2/local/edu.stanford.cs.dawn/spatial_2.12/1.1-SNAPSHOT/jars/spatial_2.12.jar
-[debug] 		tried /Users/rondomingo/.ivy2/local/edu.stanford.cs.dawn/argon_2.12/1.1-SNAPSHOT/jars/argon_2.12.jar
-[debug] 		tried /Users/rondomingo/.ivy2/local/edu.stanford.cs.dawn/poly_2.12/1.1-SNAPSHOT/jars/poly_2.12.jar
-[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#forge_2.12;1.1-SNAPSHOT!forge_2.12.jar
-[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#spatial_2.12;1.1-SNAPSHOT!spatial_2.12.jar
-[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#poly_2.12;1.1-SNAPSHOT!poly_2.12.jar
-[debug] 	[NOT REQUIRED] edu.stanford.cs.dawn#argon_2.12;1.1-SNAPSHOT!argon_2.12.jar
-[debug] :: resolution report :: resolve 6767ms :: artifacts dl 23ms
-[debug] 	report for ee109#ee109_2.12;0.1 compile produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-compile.xml
-[debug] 	report for ee109#ee109_2.12;0.1 runtime produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-runtime.xml
-[debug] 	report for ee109#ee109_2.12;0.1 test produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-test.xml
-[debug] 	report for ee109#ee109_2.12;0.1 provided produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-provided.xml
-[debug] 	report for ee109#ee109_2.12;0.1 optional produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-optional.xml
-[debug] 	report for ee109#ee109_2.12;0.1 compile-internal produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-compile-internal.xml
-[debug] 	report for ee109#ee109_2.12;0.1 runtime-internal produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-runtime-internal.xml
-[debug] 	report for ee109#ee109_2.12;0.1 test-internal produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-test-internal.xml
-[debug] 	report for ee109#ee109_2.12;0.1 plugin produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-plugin.xml
-[debug] 	report for ee109#ee109_2.12;0.1 pom produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-pom.xml
-[debug] 	report for ee109#ee109_2.12;0.1 scala-tool produced in /Users/rondomingo/Documents/senior1819/EE109/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-scala-tool.xml
-[debug] 	resolve done (6767ms resolve - 23ms download)
+[debug] :: resolution report :: resolve 11491ms :: artifacts dl 4ms
+[debug] 	report for ee109#ee109_2.12;0.1 compile produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-compile.xml
+[debug] 	report for ee109#ee109_2.12;0.1 runtime produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-runtime.xml
+[debug] 	report for ee109#ee109_2.12;0.1 test produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-test.xml
+[debug] 	report for ee109#ee109_2.12;0.1 provided produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-provided.xml
+[debug] 	report for ee109#ee109_2.12;0.1 optional produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-optional.xml
+[debug] 	report for ee109#ee109_2.12;0.1 compile-internal produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-compile-internal.xml
+[debug] 	report for ee109#ee109_2.12;0.1 runtime-internal produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-runtime-internal.xml
+[debug] 	report for ee109#ee109_2.12;0.1 test-internal produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-test-internal.xml
+[debug] 	report for ee109#ee109_2.12;0.1 plugin produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-plugin.xml
+[debug] 	report for ee109#ee109_2.12;0.1 pom produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-pom.xml
+[debug] 	report for ee109#ee109_2.12;0.1 scala-tool produced in /Users/rondomingo/Documents/senior1819/EE109/Digital-Systems-Design-Lab/FinalProject/target/scala-2.12/resolution-cache/reports/ee109-ee109_2.12-scala-tool.xml
+[debug] 	resolve done (11491ms resolve - 4ms download)
 [info] Done updating.
 [warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.

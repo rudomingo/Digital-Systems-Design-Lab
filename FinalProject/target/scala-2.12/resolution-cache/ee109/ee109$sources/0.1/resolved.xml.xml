@@ -4,7 +4,7 @@
 		module="ee109$sources"
 		revision="0.1"
 		status="integration"
-		publication="20190520101253"
+		publication="20190521144445"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

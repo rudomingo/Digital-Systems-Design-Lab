@@ -100,7 +100,7 @@ import spatial.dsl._
                 }{_+_}
               }{_+_}
             }{_+_}
-            lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], ReLU(tmp.value))
+            lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], ReLU(tmp.value + bias(m)))
           }
           output(0.to[Int]::num_filters, r, c) store lineOut
         }

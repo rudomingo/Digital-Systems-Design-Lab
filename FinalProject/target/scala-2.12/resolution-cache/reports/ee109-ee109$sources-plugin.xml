@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="plugin"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20190520101253"/>
+		date="20190521144445"/>
 	<dependencies>
 		<module organisation="org.scalamacros" name="paradise_2.12.7">
 			<revision name="2.1.0" status="release" pubdate="20180927051106" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/scalamacros/paradise" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="2">
@@ -15,7 +15,7 @@
 				<metadata-artifact status="no" details="" size="2870" time="0" location="/Users/rondomingo/.ivy2/cache/org.scalamacros/paradise_2.12.7/ivy-2.1.0.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scalamacros/paradise_2.12.7/2.1.0/paradise_2.12.7-2.1.0.pom"/>
 				<caller organisation="ee109" name="ee109$sources" conf="plugin" rev="2.1.0" rev-constraint-default="2.1.0" rev-constraint-dynamic="2.1.0" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="paradise_2.12.7" type="src" ext="jar" extra-classifier="sources" status="successful" details="" size="24028" time="66" location="/Users/rondomingo/.ivy2/cache/org.scalamacros/paradise_2.12.7/srcs/paradise_2.12.7-2.1.0-sources.jar">
+					<artifact name="paradise_2.12.7" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="24028" time="0" location="/Users/rondomingo/.ivy2/cache/org.scalamacros/paradise_2.12.7/srcs/paradise_2.12.7-2.1.0-sources.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalamacros/paradise_2.12.7/2.1.0/paradise_2.12.7-2.1.0-sources.jar"/>
 					</artifact>
 				</artifacts>

@@ -84,26 +84,22 @@ import spatial.dsl._
       val sr = RegFile[T](kernel_size, kernel_size)
       val lineOut = SRAM[T](num_filters)
 
-      Foreach(0 until input_wh) { r =>
-        Foreach(0 until input_wh) { c =>
-          Foreach (0 until num_filters) { m =>
-            weights load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
-            val tmp = Reduce(Reg[T])(0 until depth) { d =>
-              lb load input(d, r, 0.to[Int] :: input_wh par lb_par)
-              Pipe {
-                sr.reset(c.to[Int] == 0.to[Int])
-              }
-              Foreach(0 until kernel_size) { i => sr(i, *) <<= lb(i, c) }
-              Reduce(0.to[T])(0 until kernel_size) { i =>
-                Reduce(0.to[T])(0 until kernel_size) { j =>
-                  sr(i, j) * weights(d, i, j)
-                }{_+_}
-              }{_+_}
-            }{_+_}
-            lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], ReLU(tmp.value + bias(m)))
+      // TODO: Collapse these 3 loops
+      Foreach(0 until input_wh, 0 until input_wh, 0 until num_filters) { (r,c,m) =>
+        weights load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
+        val tmp = Reduce(Reg[T])(0 until depth) { d =>
+          lb load input(d, r, 0.to[Int] :: input_wh par lb_par)
+          Pipe {
+            sr.reset(c.to[Int] == 0.to[Int])
           }
-          output(0.to[Int]::num_filters, r, c) store lineOut
-        }
+          Foreach(0 until kernel_size) { i => sr(i, *) <<= lb(i, c) }
+          // TODO: Collapse these 2 loops
+          Reduce(0.to[T])(0 until kernel_size, 0 until kernel_size) { (i,j) =>
+              sr(i, j) * weights(d, i, j)
+          }{_+_}
+        }{_+_}
+        lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], ReLU(tmp.value + bias(m)))
+        output(0.to[Int]::num_filters, r, c) store lineOut
       }
     }
     output

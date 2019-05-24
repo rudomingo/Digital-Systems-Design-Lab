@@ -102,7 +102,7 @@ import spatial.dsl._
       Foreach(0 until wh, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
         weights load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
         val tmp = Reduce(Reg[T])(0 until depth) { d =>
-          lb load input(d, r, 0.to[Int] :: wh par lb_par)
+          lb load input(d, r, 0.to[Int] :: wh)
           Pipe {
             sr.reset(c.to[Int] == 0.to[Int])
           }

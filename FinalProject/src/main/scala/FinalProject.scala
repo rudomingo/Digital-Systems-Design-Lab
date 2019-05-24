@@ -43,8 +43,8 @@ import spatial.dsl._
     mux(p > 0.to[T], p, 0)
   }
 
-  def conv(input: DRAM3[T], input_wh: Int, depth: Int, weights_2d: DRAM2[T], num_filters: Int,
-           bias_dram: DRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size: Int): DRAM3[T] = {
+  def conv(input: DRAM3[T], input_wh: Int, D: Int, weights_2d: DRAM2[T], M: Int,
+           bias_dram: DRAM1[T], S: Int, P: Int, Di: Int, K: Int): DRAM3[T] = {
     /*
      * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
      * to the 4d representation for easy indexing. Then the convolution is performed.
@@ -61,7 +61,25 @@ import spatial.dsl._
      *  dilation      Kernel dilation factor
      *  kernel_size   One dimension size of the square kernel
      */
+
+    // Define the parallelization factor for the line buffer loading
     val lb_par = 8.to[Int]
+
+    val wh = ArgIn[Int]
+    val depth = ArgIn[Int]
+    val num_filters = ArgIn[Int]
+    val stride = ArgIn[Int]
+    val padding = ArgIn[Int]
+    val dilation = ArgIn[Int]
+    val kernel_size = ArgIn[Int]
+
+    setArg(wh, input_wh)
+    setArg(depth, D)
+    setArg(num_filters, M)
+    setArg(stride, S)
+    setArg(padding, P)
+    setArg(dilation, Di)
+    setArg(kernel_size, K)
 
     // Define the output of the convolution layer
     val output = DRAM[T](num_filters, input_wh/stride, input_wh/stride)

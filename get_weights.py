@@ -14,8 +14,7 @@ if __name__ == '__main__':
     for layer in model.layer:
         print(layer.name)
         # Get the weights from the convolution and norm layers only
-        if 'conv' in layer.name:
-            if 'norm' in layer.name:
+        if (layer.type == "BatchNorm"):
                 filename = "{}_mean_variance.csv".format(layer.name)
                 # Norm layer format: (0) mean, (1) variance, (2) moving average factor
                 blobs = layer.blobs
@@ -25,7 +24,7 @@ if __name__ == '__main__':
                 # and the second column as variance for each line
                 csv = np.column_stack((mean, variance))
                 np.savetxt(filename, csv, delimiter=',')
-            else:
+        if (layer.type == "Convolution"):
                 # Conv layer format: (0) weights, (1) biases
                 blobs = layer.blobs
                 # Extract the weights and place them in their proper shape

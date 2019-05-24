@@ -43,7 +43,7 @@ import spatial.dsl._
     mux(p > 0.to[T], p, 0)
   }
 
-  def conv(input: DRAM3[T], input_wh: Int, D: Int, weights_2d: DRAM2[T], M: Int,
+  def conv(input: DRAM3[T], input_wh: Int, D: Int, weights_dram: DRAM4[T], M: Int,
            bias_dram: DRAM1[T], S: Int, P: Int, Di: Int, K: Int): DRAM3[T] = {
     /*
      * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
@@ -90,7 +90,7 @@ import spatial.dsl._
       val lb = LineBuffer[T](kernel_size, wh)
 
       // Convert the 2d weights into 4d weights in DRAM
-      val weights_dram = convert_weights(weights_2d, num_filters, depth, kernel_size)
+      //val weights_dram = convert_weights(weights_2d, num_filters, depth, kernel_size)
       val weights = SRAM[T](depth, kernel_size, kernel_size)
 
       // Load the biases into SRAM
@@ -197,7 +197,7 @@ import spatial.dsl._
 
     // Initialize weights and biases in DRAM
     val image_dram = DRAM[T](1.to[Int], Cmax, Cmax)
-    val w1_1_2d = DRAM[T](64, 9)
+    val w1_1_2d = DRAM[T](64, 1, 3, 3)
     val b1_1 = DRAM[T](64)
     setMem(image_dram, test_image)
     setMem(w1_1_2d, w1_1_csv)

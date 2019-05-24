@@ -24,12 +24,10 @@ import spatial.dsl._
     val filter_length = (M * kernel_size * kernel_size).to[Int]
     val kernel_length = (kernel_size*kernel_size).to[Int]
     val kernel = SRAM[T](kernel_length)
-    Foreach (0 until M) { m =>
-      Foreach (0 until D) { d =>
-        kernel load w_2d(m, kernel_length*d::kernel_length*(d+1.to[Int]))
-        Foreach (0 until kernel_size par kernel_size) { x =>
-          weights(m, d, x, 0.to[Int]::kernel_size) store kernel(kernel_size*x::kernel_size*(x+1.to[Int]))
-        }
+    Foreach (0 until M, 0 until D) { (m,d) =>
+      kernel load w_2d(m, kernel_length*d::kernel_length*(d+1.to[Int]))
+      Foreach (0 until kernel_size par kernel_size) { x =>
+        weights(m, d, x, 0.to[Int]::kernel_size) store kernel(kernel_size*x::kernel_size*(x+1.to[Int]))
       }
     }
     weights

@@ -65,8 +65,6 @@ import spatial.dsl._
     // Define the parallelization factor for the line buffer loading
     val lb_par = 8.to[Int]
 
-    // Define the output of the convolution layer
-    val output = DRAM[T](M, input_wh/S, input_wh/S)
 
     val wh = ArgIn[Int]
     val depth = ArgIn[Int]
@@ -83,6 +81,9 @@ import spatial.dsl._
     setArg(padding, P)
     setArg(dilation, Di)
     setArg(kernel_size, K)
+
+    // Define the output of the convolution layer
+    val output = DRAM[T](num_filters, input_wh/S, input_wh/S)
 
     Accel {
       // Initialize the line buffer for the convolution to sweep through

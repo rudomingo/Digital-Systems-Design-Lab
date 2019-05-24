@@ -82,14 +82,13 @@ import spatial.dsl._
     setArg(kernel_size, K)
 
     // Define the output of the convolution layer
-    val output = DRAM[T](num_filters, input_wh/stride, input_wh/stride)
+    val output = DRAM[T](num_filters, input_wh/S, input_wh/S)
 
     Accel {
       // Initialize the line buffer for the convolution to sweep through
-      val lb = LineBuffer[T](kernel_size, input_wh)
+      val lb = LineBuffer[T](kernel_size, wh)
 
       // Convert the 2d weights into 4d weights in DRAM
-      // TODO: Is there a way to clear the memory from weights_2d in DRAM after we are done with the conversion?
       val weights_dram = convert_weights(weights_2d, num_filters, depth, kernel_size)
       val weights = SRAM[T](depth, kernel_size, kernel_size)
 
@@ -100,16 +99,14 @@ import spatial.dsl._
       val sr = RegFile[T](kernel_size, kernel_size)
       val lineOut = SRAM[T](num_filters)
 
-      // TODO: Collapse these 3 loops
-      Foreach(0 until input_wh, 0 until input_wh, 0 until num_filters) { (r,c,m) =>
+      Foreach(0 until wh, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
         weights load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
         val tmp = Reduce(Reg[T])(0 until depth) { d =>
-          lb load input(d, r, 0.to[Int] :: input_wh par lb_par)
+          lb load input(d, r, 0.to[Int] :: wh par lb_par)
           Pipe {
             sr.reset(c.to[Int] == 0.to[Int])
           }
           Foreach(0 until kernel_size) { i => sr(i, *) <<= lb(i, c) }
-          // TODO: Collapse these 2 loops
           Reduce(0.to[T])(0 until kernel_size, 0 until kernel_size) { (i,j) =>
               sr(i, j) * weights(d, i, j)
           }{_+_}

@@ -83,7 +83,7 @@ import spatial.dsl._
     setArg(kernel_size, K)
 
     // Define the output of the convolution layer
-    val output = DRAM[T](num_filters, input_wh/S, input_wh/S)
+    val output = DRAM[T](M, input_wh/S, input_wh/S)
 
     Accel {
       // Initialize the line buffer for the convolution to sweep through

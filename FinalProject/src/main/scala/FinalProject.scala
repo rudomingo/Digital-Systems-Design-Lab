@@ -52,18 +52,21 @@ import spatial.dsl._
      * Params:
      *  input         Input into the convolution layer
      *  input_wh      Input width and height. Always assumes square input
-     *  depth         The depth of the input and the file
+     *  D             The depth of the input and the file
      *  weights_2d    The weights for the particular layer read in from the csv file
-     *  num_filters   The number of filters in the weights file
-     *  bias_dram          The bias to be added on to the convolution result
-     *  stride        Stride while iterating through the input
-     *  padding       0 padding added around the input
-     *  dilation      Kernel dilation factor
-     *  kernel_size   One dimension size of the square kernel
+     *  M             The number of filters in the weights file
+     *  bias_dram     The bias to be added on to the convolution result
+     *  S             Stride while iterating through the input
+     *  P             0 padding added around the input
+     *  Di            Kernel dilation factor
+     *  K             One dimension size of the square kernel
      */
 
     // Define the parallelization factor for the line buffer loading
     val lb_par = 8.to[Int]
+
+    // Define the output of the convolution layer
+    val output = DRAM[T](M, input_wh/S, input_wh/S)
 
     val wh = ArgIn[Int]
     val depth = ArgIn[Int]
@@ -80,9 +83,6 @@ import spatial.dsl._
     setArg(padding, P)
     setArg(dilation, Di)
     setArg(kernel_size, K)
-
-    // Define the output of the convolution layer
-    val output = DRAM[T](M, input_wh/S, input_wh/S)
 
     Accel {
       // Initialize the line buffer for the convolution to sweep through

@@ -3,7 +3,7 @@ import spatial.dsl._
 @spatial object ProjectCNNColorization extends SpatialApp {
 
   // Set the default height and width of the input image
-  val Cmax = 224.to[Int]
+  //val Cmax = 224.to[Int]
 
   // Set the size of each weight value, can alter this for more precision
   type T = FixPt[TRUE, _5, _11]
@@ -193,7 +193,8 @@ import spatial.dsl._
     val kernel_size_1 = 3.to[Int]
 
     // Initialize weights and biases in DRAM
-    val image_dram = DRAM[T](1.to[Int], Cmax, Cmax)
+    //val image_dram = DRAM[T](1.to[Int], Cmax, Cmax)
+    val image_dram = DRAM[T](1.to[Int], 224.to[Int], 224.to[Int])
     val w1_1_2d = DRAM[T](64, 1, kernel_size_1, kernel_size_1)
     val b1_1 = DRAM[T](64)
     setMem(image_dram, test_image)

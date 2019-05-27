@@ -62,13 +62,6 @@ import spatial.dsl._
      *  K             One dimension size of the square kernel
      */
 
-    // Define the parallelization factor for the line buffer loading
-    val lb_par = 8.to[Int]
-
-    // Define the output of the convolution layer
-    val output = DRAM[T](M, input_wh/S, input_wh/S)
-
-
     val wh = ArgIn[Int]
     val depth = ArgIn[Int]
     val num_filters = ArgIn[Int]
@@ -77,6 +70,10 @@ import spatial.dsl._
     val dilation = ArgIn[Int]
     val kernel_size = ArgIn[Int]
 
+    // Define the parallelization factor for the line buffer loading
+    val lb_par = 8.to[Int]
+
+
     setArg(wh, input_wh)
     setArg(depth, D)
     setArg(num_filters, M)
@@ -84,6 +81,9 @@ import spatial.dsl._
     setArg(padding, P)
     setArg(dilation, Di)
     setArg(kernel_size, K)
+
+    // Define the output of the convolution layer
+    val output = DRAM[T](num_filters, wh/stride, wh/stride)
 
 
     Accel {
@@ -121,10 +121,6 @@ import spatial.dsl._
   }
 
   def main(args: Array[String]): Unit = {
-
-    val outerPar = 1
-    val midPar = 1
-    val innerPar = 1
 
     // Importing weights and biases for all layers
     val w1_1_csv = loadCSV2D[T]("XXXXX.csv", ",")

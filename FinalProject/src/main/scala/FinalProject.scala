@@ -104,7 +104,7 @@ import spatial.dsl._
       Foreach(0 until wh, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
         weights load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
         val tmp = Reduce(Reg[T])(0 until depth) { d =>
-          lb load input(d, r, 0.to[Int] :: wh)
+          lb load input(d, r, 0.to[Int] :: wh par lb_par)
           Pipe {
             sr.reset(c.to[Int] == 0.to[Int])
           }
@@ -194,22 +194,23 @@ import spatial.dsl._
     // val gold = loadCSV2D[T]("XXXXX.csv, ",")
 
     // Define the kernel size for the following layers
-    val kernel_size = 3.to[Int]
+    val kernel_size_1 = 3.to[Int]
 
     // Initialize weights and biases in DRAM
     val image_dram = DRAM[T](1.to[Int], Cmax, Cmax)
-    val w1_1_2d = DRAM[T](64, 1, 3, 3)
+    val w1_1_2d = DRAM[T](64, 1, kernel_size_1, kernel_size_1)
     val b1_1 = DRAM[T](64)
     setMem(image_dram, test_image)
     setMem(w1_1_2d, w1_1_csv)
     setMem(b1_1, b1_1_csv)
 
     // TODO: Initialize everything else...
-    val output = DRAM[T](Cmax, Cmax)
+    //val output = DRAM[T](Cmax, Cmax)
 
-    val num_filters = 8.to[Int]
     val conv1_1_result = conv(image_dram, 224.to[Int], 1.to[Int], w1_1_2d, 64.to[Int], b1_1,
-      1.to[Int], 1.to[Int], 1.to[Int], 3.to[Int])
+      1.to[Int], 1.to[Int], 1.to[Int], kernel_size_1)
+
+    print(conv1_1_result)
   } 
 }
 

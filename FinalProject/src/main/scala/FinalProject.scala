@@ -62,6 +62,12 @@ import spatial.dsl._
      *  K             One dimension size of the square kernel
      */
 
+    // Define the maximum sizes for the on chip memory elements
+    val WH_MAX = 226.to[Int] // 226 instead of 224 to account for 1 padding
+    val DEPTH_MAX = 512.to[Int]
+    val NUM_FILTERS_MAX = 512.to[Int]
+    val KERNEL_SIZE_MAX = 7.to[Int] // Accounts for a 3x3 kernel that is 2 dilated
+
     val wh = ArgIn[Int]
     val depth = ArgIn[Int]
     val num_filters = ArgIn[Int]
@@ -83,23 +89,23 @@ import spatial.dsl._
     setArg(kernel_size, K)
 
     // Define the output of the convolution layer
-    val output = DRAM[T](num_filters, wh/stride, wh/stride)
+    val output = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
 
 
     Accel {
       // Initialize the line buffer for the convolution to sweep through
-      val lb = LineBuffer[T](kernel_size, wh)
+      val lb = LineBuffer[T](KERNEL_SIZE_MAX, WH_MAX)
 
       // Convert the 2d weights into 4d weights in DRAM
       //val weights_dram = convert_weights(weights_2d, num_filters, depth, kernel_size)
-      val weights = SRAM[T](depth, kernel_size, kernel_size)
+      val weights = SRAM[T](DEPTH_MAX, KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
 
       // Load the biases into SRAM
-      val bias = SRAM[T](num_filters)
+      val bias = SRAM[T](NUM_FILTERS_MAX)
       bias load bias_dram
 
-      val sr = RegFile[T](kernel_size, kernel_size)
-      val lineOut = SRAM[T](num_filters)
+      val sr = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
+      val lineOut = SRAM[T](NUM_FILTERS_MAX)
 
       Foreach(0 until wh, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
         weights load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)

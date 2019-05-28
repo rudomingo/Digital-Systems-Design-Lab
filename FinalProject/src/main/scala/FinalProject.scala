@@ -139,11 +139,11 @@ import spatial.dsl._
   def main(args: Array[String]): Unit = {
 
     // Importing weights and biases for all layers
-    val w1_1_csv = loadCSV2D[T]("XXXXX.csv", ",")
-    val b1_1_csv = loadCSV1D[T]("XXXXX.csv", ",")
-    val w1_2_csv = loadCSV2D[T]("XXXXX.csv", ",")
-    val b1_2_csv = loadCSV1D[T]("XXXXX.csv", ",")
-    val norm_1 = loadCSV1D[T]("XXXXX.csv", ",")
+    val w1_1_csv = loadCSV2D[T]("bw_conv1_1_weights.csv", ",")
+    val b1_1_csv = loadCSV1D[T]("bw_conv1_1_bias.csv", ",")
+    val w1_2_csv = loadCSV2D[T]("conv1_2_weights.csv", ",")
+    val b1_2_csv = loadCSV1D[T]("conv1_2_bias.csv", ",")
+    val norm_1 = loadCSV1D[T]("conv1_2norm_mean_variance.csv", ",")
 
     /*
     val w2_1_data = loadCSV2D[T]("XXXXX.csv", ",")
@@ -201,7 +201,7 @@ import spatial.dsl._
     val norm_8 = loadCSV1D[T]("XXXXX.csv", ",")
   */
 
-    val test_image = loadCSV2D[T]("XXXXX.csv", ",")
+    val test_image = loadCSV2D[T]("test_image.csv", ",")
     // ground truth image?? for comparision
     // val gold = loadCSV2D[T]("XXXXX.csv, ",")
 

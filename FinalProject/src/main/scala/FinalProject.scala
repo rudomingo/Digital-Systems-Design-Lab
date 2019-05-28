@@ -44,7 +44,7 @@ import spatial.dsl._
   }
 
   def conv(input: DRAM3[T], input_wh: Int, D: Int, weights_dram: DRAM4[T], M: Int,
-           bias_dram: DRAM1[T], S: Int, P: Int, Di: Int, K: Int): Tensor3[T] = {
+           bias_dram: DRAM1[T], S: Int, P: Int, Di: Int, K: Int): DRAM3[T] = {
     /*
      * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
      * to the 4d representation for easy indexing. Then the convolution is performed.
@@ -117,14 +117,16 @@ import spatial.dsl._
       Foreach(0 until wh by stride, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
         weights_sram load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
         val tmp = Reduce(Reg[T])(0 until depth) { d =>
-          lb load input(d, r, 0.to[Int] :: wh par lb_par)
+          lb load input(d, r, 0.to[Int] :: (wh - 2.to[Int] * padding) par lb_par)
           Pipe {
             sr.reset(c.to[Int] == 0.to[Int])
           }
+          // Dilates the kernel
           Foreach(0 until kernel_size, 0 until kernel_size) { (i, j) =>
             weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(d, i/dilation, j/dilation), 0.to[T])
           }
-          Foreach(0 until kernel_size) { i => sr(i, *) <<= lb(i, c) }
+          // Loads a 0 into the shift register to account for padding
+          Foreach(0 until kernel_size) { i => sr(i, *) <<= mux(c < padding || c > (wh - (2.to[Int] * padding)), 0.to[T], lb(i, c-padding)) }
           Reduce(0.to[T])(0 until kernel_size, 0 until kernel_size) { (i,j) =>
               sr(i, j) * weights(i, j)
           }{_+_}
@@ -133,7 +135,7 @@ import spatial.dsl._
         output(0.to[Int]::num_filters, r, c) store lineOut
       }
     }
-    getTensor3(output)
+    output
   }
 
   def main(args: Array[String]): Unit = {
@@ -145,13 +147,13 @@ import spatial.dsl._
     val b1_2_csv = loadCSV1D[T]("conv1_2_bias.csv", ",")
     val norm_1 = loadCSV1D[T]("conv1_2norm_mean_variance.csv", ",")
 
-    /*
-    val w2_1_data = loadCSV2D[T]("XXXXX.csv", ",")
-    val b2_1_data = loadCSV1D[T]("XXXXX.csv", ",")
-    val w2_2_data = loadCSV2D[T]("XXXXX.csv", ",")
-    val b2_2_data = loadCSV1D[T]("XXXXX.csv", ",")
-    val norm_2 = loadCSV1D[T]("XXXXX.csv", ",")
+    val w2_1_csv = loadCSV2D[T]("conv2_1_weights.csv", ",")
+    val b2_1_csv = loadCSV1D[T]("conv2_1_bias.csv", ",")
+    val w2_2_csv = loadCSV2D[T]("conv2_2_weights.csv", ",")
+    val b2_2_csv = loadCSV1D[T]("conv2_2_bias.csv", ",")
+    val norm_2 = loadCSV1D[T]("conv2_2norm_mean_variance.csv", ",")
 
+    /*
     val w3_1_data = loadCSV2D[T]("XXXXX.csv", ",")
     val b3_1_data = loadCSV1D[T]("XXXXX.csv", ",")
     val w3_2_data = loadCSV2D[T]("XXXXX.csv", ",")
@@ -209,21 +211,26 @@ import spatial.dsl._
     val kernel_size_1 = 3.to[Int]
 
     // Initialize weights and biases in DRAM
-    //val image_dram = DRAM[T](1.to[Int], Cmax, Cmax)
-    val image_dram = DRAM[T](1.to[Int], 226.to[Int], 226.to[Int])
+    val image_dram = DRAM[T](1.to[Int], 224.to[Int], 224.to[Int])
     val w1_1_2d = DRAM[T](64, 1, kernel_size_1, kernel_size_1)
     val b1_1 = DRAM[T](64)
     setMem(image_dram, test_image)
     setMem(w1_1_2d, w1_1_csv)
     setMem(b1_1, b1_1_csv)
 
-    // TODO: Initialize everything else...
-    //val output = DRAM[T](Cmax, Cmax)
+    val w1_2_2d = DRAM[T](64, 64, kernel_size_1, kernel_size_1)
+    val b1_2 = DRAM[T](64)
+    setMem(w1_2_2d, w1_2_csv)
+    setMem(b1_2, b1_2_csv)
 
     val conv1_1_result = conv(image_dram, 224.to[Int], 1.to[Int], w1_1_2d, 64.to[Int], b1_1,
       1.to[Int], 1.to[Int], 1.to[Int], kernel_size_1)
 
-    printTensor3(conv1_1_result)
-  } 
+    val conv1_2_result = conv(conv1_1_result, 224.to[Int], 64.to[Int], w1_2_2d, 64.to[Int], b1_2,
+      1.to[Int], 1.to[Int], 1.to[Int], kernel_size_1)
+
+    printTensor3(getTensor3(conv1_1_result))
+    printTensor3(getTensor3(conv1_2_result))
+  }
 }
 

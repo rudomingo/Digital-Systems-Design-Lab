@@ -122,11 +122,11 @@ import spatial.dsl._
             sr.reset(c.to[Int] == 0.to[Int])
           }
           Foreach(0 until kernel_size, 0 until kernel_size) { (i, j) =>
-            weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(m, i/dilation, j/dilation), 0.to[T])
+            weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(d, i/dilation, j/dilation), 0.to[T])
           }
           Foreach(0 until kernel_size) { i => sr(i, *) <<= lb(i, c) }
           Reduce(0.to[T])(0 until kernel_size, 0 until kernel_size) { (i,j) =>
-              sr(i, j) * weights(d, i, j)
+              sr(i, j) * weights(i, j)
           }{_+_}
         }{_+_}
         lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], max(0.to[T], tmp.value + bias(m)))

@@ -141,7 +141,7 @@ import spatial.dsl._
 
       def conv(input: DRAM3[T], wh: Int, depth: Int, weights_dram: DRAM4[T], num_filters: Int,
                bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size: Int,
-               output: DRAM3[T]): Unit = {
+               weights_sram: SRAM3[T], output: DRAM3[T]): Unit = {
                //lb: LineBuffer[T], weights_sram: SRAM3[T], sr: RegFile2[T], output: DRAM3[T]): Unit = {
         /*
          * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
@@ -163,6 +163,7 @@ import spatial.dsl._
         val lb = LineBuffer[T](KERNEL_SIZE_MAX, WH_MAX)
 
         val sr = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
+
         val weights = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
         val lineOut = SRAM[T](NUM_FILTERS_MAX)
 
@@ -191,7 +192,8 @@ import spatial.dsl._
       Sequential{
         bias load b1_1
         conv(input, input_size_1, depth_1_1, w1_1_2d, num_filters_1,
-          bias, stride_1_1, pad_1, dilation_1, kernel_size_1, lb, weights_sram, sr, output)
+          bias, stride_1_1, pad_1, dilation_1, kernel_size_1, weights_sram, output)
+          //bias, stride_1_1, pad_1, dilation_1, kernel_size_1, lb, weights_sram, sr, output)
       }
     }
     printTensor3(getTensor3(output))

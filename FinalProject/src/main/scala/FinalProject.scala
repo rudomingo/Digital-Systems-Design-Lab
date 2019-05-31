@@ -132,9 +132,6 @@ import spatial.dsl._
 
 
     Accel {
-      // Initialize the line buffer for the convolution to sweep through
-      val lb = LineBuffer[T](KERNEL_SIZE_MAX, WH_MAX)
-
       // Convert the 2d weights into 4d weights in DRAM
       //val weights_dram = convert_weights(weights_2d, num_filters, depth, kernel_size)
       val weights_sram = SRAM[T](DEPTH_MAX, KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
@@ -142,11 +139,10 @@ import spatial.dsl._
       // Load the biases into SRAM
       val bias = SRAM[T](NUM_FILTERS_MAX)
 
-      val sr = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
-
       def conv(input: DRAM3[T], wh: Int, depth: Int, weights_dram: DRAM4[T], num_filters: Int,
                bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size: Int,
-               lb: LineBuffer[T], weights_sram: SRAM3[T], sr: RegFile2[T], output: DRAM3[T]): Unit = {
+               output: DRAM3[T]): Unit = {
+               //lb: LineBuffer[T], weights_sram: SRAM3[T], sr: RegFile2[T], output: DRAM3[T]): Unit = {
         /*
          * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
          * to the 4d representation for easy indexing. Then the convolution is performed.
@@ -163,8 +159,13 @@ import spatial.dsl._
          *  dilation      Kernel dilation factor
          *  kernel_size   One dimension size of the square kernel
          */
+        // Initialize the line buffer for the convolution to sweep through
+        val lb = LineBuffer[T](KERNEL_SIZE_MAX, WH_MAX)
+
+        val sr = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
         val weights = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
         val lineOut = SRAM[T](NUM_FILTERS_MAX)
+
         Foreach(0 until wh by stride, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
           weights_sram load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
           val tmp = Reduce(Reg[T])(0 until depth) { d =>

@@ -2,8 +2,11 @@ import spatial.dsl._
 
 @spatial object ProjectCNNColorization extends SpatialApp {
 
-  // Set the default height and width of the input image
-  //val Cmax = 224.to[Int]
+  // Define the maximum sizes for the on chip memory elements
+  val WH_MAX = 226.to[Int] // 226 instead of 224 to account for 1 padding
+  val DEPTH_MAX = 512.to[Int]
+  val NUM_FILTERS_MAX = 512.to[Int]
+  val KERNEL_SIZE_MAX = 7.to[Int] // Accounts for a 3x3 kernel that is 2 dilated
 
   // Set the size of each weight value, can alter this for more precision
   type T = FixPt[TRUE, _5, _11]
@@ -61,12 +64,6 @@ import spatial.dsl._
      *  Di            Kernel dilation factor
      *  K             One dimension size of the square kernel
      */
-
-    // Define the maximum sizes for the on chip memory elements
-    val WH_MAX = 226.to[Int] // 226 instead of 224 to account for 1 padding
-    val DEPTH_MAX = 512.to[Int]
-    val NUM_FILTERS_MAX = 512.to[Int]
-    val KERNEL_SIZE_MAX = 7.to[Int] // Accounts for a 3x3 kernel that is 2 dilated
 
     // Calculate the new width/height given the padding and the input size
     val new_input_size = input_wh + (P * 2.to[Int])

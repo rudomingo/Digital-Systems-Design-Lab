@@ -127,6 +127,7 @@ import spatial.dsl._
   */
     // Define the output of the previous convolutional layer and the input to the next
     val input = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
+    setMem(input, test_image)
     val output = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
 
 
@@ -187,7 +188,6 @@ import spatial.dsl._
       }
 
       Sequential{
-        setMem(input, test_image)
         bias load b1_1
         conv(input, input_size_1, depth_1_1, w1_1_2d, num_filters_1,
           bias, stride_1_1, pad_1, dilation_1, kernel_size_1, lb, weights_sram, sr, output)

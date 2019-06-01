@@ -2,19 +2,20 @@ import spatial.dsl._
 
 @spatial object ProjectCNNColorization extends SpatialApp {
 
-  // Define the maximum sizes for the on chip memory elements
-  val WH_MAX = 226.to[Int] // 226 instead of 224 to account for 1 padding
-  val DEPTH_MAX = 512.to[Int]
-  val NUM_FILTERS_MAX = 512.to[Int]
-  val KERNEL_SIZE_MAX = 7.to[Int] // Accounts for a 3x3 kernel that is 2 dilated
-
-  // Define the parallelization factor for the line buffer loading
-  val LB_PAR = 8.to[Int]
-
   // Set the size of each weight value, can alter this for more precision
   type T = FixPt[TRUE, _5, _11]
 
   def main(args: Array[String]): Unit = {
+
+    // Define the maximum sizes for the on chip memory elements
+    val WH_MAX = 226.to[Int] // 226 instead of 224 to account for 1 padding
+    val DEPTH_MAX = 512.to[Int]
+    val NUM_FILTERS_MAX = 512.to[Int]
+    val KERNEL_SIZE_MAX = 7.to[Int] // Accounts for a 3x3 kernel that is 2 dilated
+
+    // Define the parallelization factor for the line buffer loading
+    val LB_PAR = 8.to[Int]
+
 
     /*
      * Naming conventions for convolution block parameters are as follows:

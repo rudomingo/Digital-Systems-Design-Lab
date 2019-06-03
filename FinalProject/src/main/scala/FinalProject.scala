@@ -226,9 +226,9 @@ import spatial.dsl._
               weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(d, i/dilation, j/dilation), 0.to[T])
             }
             // Loads a 0 into the shift register to account for padding
-            Foreach(0 until kernel_size) { i => sr(i, *) <<= mux(c < padding || c > (wh - (2.to[Int] * padding)), 0.to[T], lb(i, c-padding)) }
+            Foreach(0 until kernel_size) { i => sr1(i, *) <<= mux(c < padding || c > (wh - (2.to[Int] * padding)), 0.to[T], lb(i, c-padding)) }
             Reduce(0.to[T])(0 until kernel_size, 0 until kernel_size) { (i,j) =>
-              sr(i, j) * weights(i, j)
+              sr1(i, j) * weights(i, j)
             }{_+_}
           }{_+_}
           lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], max(0.to[T], tmp.value + bias(m)))

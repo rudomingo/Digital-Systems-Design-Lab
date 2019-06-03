@@ -40,7 +40,7 @@ import spatial.dsl._
 
     // Define the parameters of the convolution block
     val raw_kernel_size_1 = 3.to[Int]
-    val raw_input_size_1 = 3.to[Int]
+    val raw_input_size_1 = 224.to[Int]
     val num_filters_1 = 64.to[Int]
     val depth_1_1 = 1.to[Int]
     val depth_1_2 = 64.to[Int]
@@ -150,6 +150,7 @@ import spatial.dsl._
       val lb = LineBuffer[T](KERNEL_SIZE_MAX, WH_MAX)
 
       val sr = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
+      val sr1 = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
 
       def conv1(input: DRAM3[T], wh: Int, weights_dram: DRAM4[T], num_filters: Int,
                bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size: Int): Unit = {
@@ -218,7 +219,7 @@ import spatial.dsl._
           val tmp = Reduce(Reg[T])(0 until depth) { d =>
             lb load input(d, r, 0.to[Int] :: (wh - 2.to[Int] * padding) par LB_PAR)
             Pipe {
-              sr.reset(c.to[Int] == 0.to[Int])
+              sr1.reset(c.to[Int] == 0.to[Int])
             }
             // Dilates the kernel
             Foreach(0 until kernel_size, 0 until kernel_size) { (i, j) =>

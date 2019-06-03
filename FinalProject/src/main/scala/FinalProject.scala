@@ -40,7 +40,7 @@ import spatial.dsl._
 
     // Define the parameters of the convolution block
     val raw_kernel_size_1 = 3.to[Int]
-    val raw_input_size_1 = 224.to[Int]
+    val raw_input_size_1 = 3.to[Int]
     val num_filters_1 = 64.to[Int]
     val depth_1_1 = 1.to[Int]
     val depth_1_2 = 64.to[Int]
@@ -127,6 +127,7 @@ import spatial.dsl._
     // Define the output of the previous convolutional layer and the input to the next
     val input = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
     setMem(input, test_image)
+    val output_buffer = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
     val output = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
 
 
@@ -186,7 +187,7 @@ import spatial.dsl._
             sr(i, j) * weights(i, j)
           }{_+_}
           lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], max(0.to[T], tmp.value + bias(m)))
-          output(0.to[Int]::num_filters, r, c) store lineOut
+          output_buffer(0.to[Int]::num_filters, r, c) store lineOut
         }
       }
 
@@ -229,7 +230,7 @@ import spatial.dsl._
             }{_+_}
           }{_+_}
           lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], max(0.to[T], tmp.value + bias(m)))
-          output(0.to[Int]::num_filters, r, c) store lineOut
+          output_buffer(0.to[Int]::num_filters, r, c) store lineOut
         }
       }
 
@@ -237,9 +238,14 @@ import spatial.dsl._
         bias load b1_1
         conv1(input, input_size_1, w1_1_2d, num_filters_1,
           bias, stride_1_1, pad_1, dilation_1, kernel_size_1)
-        bias load b1_2
-        conv_else(input, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
-          bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
+
+        // TODO: How do we transfer from one DRAM to another
+        // Saved into output_buffer but we want to move everything into output
+        // so that output can be passed into the next layer.
+
+        //bias load b1_2
+        //conv_else(input, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
+          //bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
       }
     }
     printTensor3(getTensor3(output))

@@ -58,6 +58,7 @@ import spatial.dsl._
     // Initialize weights and biases in DRAM for convolution block 1
     val w1_1_2d = DRAM[T](num_filters_1, 1, raw_kernel_size_1, raw_kernel_size_1)
     val b1_1 = DRAM[T](num_filters_1)
+    // TODO: Here we take a tensor2 object and load it as a DRAM4, is that an okay thing to do?
     setMem(w1_1_2d, w1_1_csv)
     setMem(b1_1, b1_1_csv)
 
@@ -230,11 +231,13 @@ import spatial.dsl._
             }{_+_}
           }{_+_}
           lineOut(m) = mux(r < kernel_size || c < kernel_size, 0.to[T], max(0.to[T], tmp.value + bias(m)))
-          output_buffer(0.to[Int]::num_filters, r, c) store lineOut
+          output(0.to[Int]::num_filters, r, c) store lineOut
         }
       }
 
       Sequential{
+        // TODO: When running sequential here, does that also make the conv functions run sequentially,
+        // or could we still paralellize within those functions
         bias load b1_1
         conv1(input, input_size_1, w1_1_2d, num_filters_1,
           bias, stride_1_1, pad_1, dilation_1, kernel_size_1)
@@ -243,9 +246,17 @@ import spatial.dsl._
         // Saved into output_buffer but we want to move everything into output
         // so that output can be passed into the next layer.
 
+        bias load b1_2
+        conv_else(output_buffer, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
+          bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
+
         //bias load b1_2
         //conv_else(input, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
-          //bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
+        //bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
+
+        //bias load b1_2
+        //conv_else(input, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
+        //bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
       }
     }
     printTensor3(getTensor3(output))

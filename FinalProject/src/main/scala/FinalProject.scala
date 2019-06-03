@@ -237,6 +237,9 @@ import spatial.dsl._
         bias load b1_1
         conv1(input, input_size_1, w1_1_2d, num_filters_1,
           bias, stride_1_1, pad_1, dilation_1, kernel_size_1)
+        bias load b1_2
+        conv_else(input, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
+          bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
       }
     }
     printTensor3(getTensor3(output))

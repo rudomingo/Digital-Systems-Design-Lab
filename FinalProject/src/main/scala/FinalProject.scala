@@ -62,14 +62,19 @@ import spatial.dsl._
     setMem(w1_1_2d, w1_1_csv)
     setMem(b1_1, b1_1_csv)
 
-    printMatrix(w1_1_csv)
-    printTensor4(getTensor4(w1_1_2d))
-
-    /*
     val w1_2_2d = DRAM[T](num_filters_1, depth_1_2, raw_kernel_size_1, raw_kernel_size_1)
     val b1_2 = DRAM[T](num_filters_1)
     setMem(w1_2_2d, w1_2_csv)
     setMem(b1_2, b1_2_csv)
+
+    printMatrix(w1_2_csv)
+    printTensor4(getTensor4(w1_1_2d))
+
+    print(w1_2_csv(1.to[Int],68.to[Int]))
+    val weights2 = getTensor4(w1_2_2d)
+    print(weights2(1.to[Int],1.to[Int],1.to[Int],1.to[Int]))
+
+    /*
 
     // **********************************
     //            Conv 2

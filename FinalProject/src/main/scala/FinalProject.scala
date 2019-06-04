@@ -14,6 +14,31 @@ import spatial.dsl._
   // Set the size of each weight value, can alter this for more precision
   type T = FixPt[TRUE, _5, _11]
 
+  /*
+  def convert_weights(w_2d: Tensor2[T], M: Int, D: Int, kernel_size: Int, w_4d: DRAM4[T]): Unit = {
+    /*
+     * Takes in the 2d representation of the weights stored in the csv for a given
+     * layer and converts the weights to their original 4d representation in memory
+     * for easier indexing.
+     *
+     * Params:
+     *  w_2d            2d representation of the 4d weights
+     *  D               The depth of the weights file
+     *  M               The number of filters
+     *  kernel_size     The kernel size. Assumed the kernel is a square
+     */
+    val w_dram = Tensor4(test, M, D, kernel_size, kernel_size)
+    Foreach (0 until M, 0 until D) { (m,d) =>
+      //w_2d(m, kernel_length*d::kernel_length*(d+1.to[Int]))
+      Foreach (0 until kernel_size, 0 until kernel_size) { (x,y) =>
+        //w_dram(m, d, x, y) = w_2d(m.to[Int], (d.to[Int]*D + x*kernel_size + y).to[Int])
+        setMem(w_dram(m, d, x, y),w_2d(m.to[Int], (d.to[Int]*D + x*kernel_size).to[Int]::(d.to[Int]*D + x*kernel_size + kernel_size).to[Int]))
+      }
+    }
+    w_dram
+  }
+   */
+
   def main(args: Array[String]): Unit = {
     /*
      * Naming conventions for convolution block parameters are as follows:
@@ -49,30 +74,24 @@ import spatial.dsl._
     val stride_1_2 = 2.to[Int]
     val dilation_1 = 1.to[Int]
 
-    // Calculate the new width/height given the padding and the input size
-    val input_size_1 = raw_input_size_1 + (pad_1 * 2.to[Int])
-
-    // Calculate the new kernel size given the dilation
-    val kernel_size_1 = (dilation_1 * raw_kernel_size_1) + dilation_1 - 1.to[Int]
-
     // Initialize weights and biases in DRAM for convolution block 1
-    val w1_1_2d = DRAM[T](num_filters_1, 1, raw_kernel_size_1, raw_kernel_size_1)
+    val w1_1_2d = DRAM[T](num_filters_1, raw_kernel_size_1*raw_kernel_size_1)
     val b1_1 = DRAM[T](num_filters_1)
     // TODO: Here we take a tensor2 object and load it as a DRAM4, is that an okay thing to do?
     setMem(w1_1_2d, w1_1_csv)
     setMem(b1_1, b1_1_csv)
 
-    val w1_2_2d = DRAM[T](num_filters_1, depth_1_2, raw_kernel_size_1, raw_kernel_size_1)
+    val w1_2_2d = DRAM[T](num_filters_1, depth_1_2*raw_kernel_size_1*raw_kernel_size_1)
     val b1_2 = DRAM[T](num_filters_1)
     setMem(w1_2_2d, w1_2_csv)
     setMem(b1_2, b1_2_csv)
 
     printMatrix(w1_2_csv)
-    printTensor4(getTensor4(w1_1_2d))
+    printMatrix(getMatrix(w1_1_2d))
 
     print(w1_2_csv(1.to[Int],68.to[Int]))
-    val weights2 = getTensor4(w1_2_2d)
-    print(weights2(1.to[Int],1.to[Int],1.to[Int],1.to[Int]))
+    val weights2 = getMatrix(w1_2_2d)
+    print(weights2(1.to[Int],68.to[Int]))
 
     /*
 
@@ -144,7 +163,6 @@ import spatial.dsl._
     val output = DRAM[T](64.to[Int], WH_MAX, WH_MAX)
 
 
-    /*
     Accel {
 
       //val depth = LUT[T](23)(1.to[T], 64.to[T], 64.to[T], 128.to[T], 128.to[T], 256.to[T],
@@ -154,7 +172,8 @@ import spatial.dsl._
 
       // Convert the 2d weights into 4d weights in DRAM
       //val weights_dram = convert_weights(weights_2d, num_filters, depth, kernel_size)
-      val weights_sram = SRAM[T](DEPTH_MAX, KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
+      val weights_sram_1 = SRAM[T](KERNEL_SIZE_MAX*KERNEL_SIZE_MAX)
+      val weights_sram = SRAM[T](DEPTH_MAX*KERNEL_SIZE_MAX*KERNEL_SIZE_MAX)
 
       // Load the biases into SRAM
       val bias = SRAM[T](NUM_FILTERS_MAX)
@@ -165,8 +184,8 @@ import spatial.dsl._
       val sr = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
       val sr1 = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
 
-      def conv1(input: DRAM3[T], wh: Int, weights_dram: DRAM4[T], num_filters: Int,
-               bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size: Int): Unit = {
+      def conv1(input: DRAM3[T], input_size_raw: Int, weights_dram: DRAM2[T], num_filters: Int,
+               bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size_raw: Int): Unit = {
         /*
          * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
          * to the 4d representation for easy indexing. Then the convolution is performed.
@@ -186,15 +205,22 @@ import spatial.dsl._
         val weights = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
         val lineOut = SRAM[T](NUM_FILTERS_MAX)
 
+        // Calculate the new width/height given the padding and the input size
+        val wh = input_size_raw + (padding * 2.to[Int])
+
+        // Calculate the new kernel size given the dilation
+        val kernel_size = (dilation * kernel_size_raw) + dilation - 1.to[Int]
+
+
         Foreach(0 until wh by stride, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
-          weights_sram load weights_dram(m, 0.to[Int]::1.to[Int], 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
+          weights_sram_1 load weights_dram(m, 0.to[Int]::kernel_size_raw*kernel_size_raw)
           lb load input(0.to[Int], r, 0.to[Int] :: (wh - 2.to[Int] * padding) par LB_PAR)
           Pipe {
             sr.reset(c.to[Int] == 0.to[Int])
           }
           // Dilates the kernel
           Foreach(0 until kernel_size, 0 until kernel_size) { (i, j) =>
-            weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(0.to[Int], i/dilation, j/dilation), 0.to[T])
+            weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram_1((i/dilation*kernel_size_raw)+j/dilation), 0.to[T])
           }
           // Loads a 0 into the shift register to account for padding
           Foreach(0 until kernel_size) { i => sr(i, *) <<= mux(c < padding || c > (wh - (2.to[Int] * padding)), 0.to[T], lb(i, c-padding)) }
@@ -206,8 +232,8 @@ import spatial.dsl._
         }
       }
 
-      def conv_else(input: DRAM3[T], wh: Int, depth: Int, weights_dram: DRAM4[T], num_filters: Int,
-               bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size: Int): Unit = {
+      def conv_else(input: DRAM3[T], input_size_raw: Int, depth: Int, weights_dram: DRAM2[T], num_filters: Int,
+               bias: SRAM1[T], stride: Int, padding: Int, dilation: Int, kernel_size_raw: Int): Unit = {
         /*
          * Fused Convolution - Bias - ReLU functionality. Accelerator first converts the 2d weight file
          * to the 4d representation for easy indexing. Then the convolution is performed.
@@ -227,8 +253,15 @@ import spatial.dsl._
         val weights = RegFile[T](KERNEL_SIZE_MAX, KERNEL_SIZE_MAX)
         val lineOut = SRAM[T](NUM_FILTERS_MAX)
 
+        // Calculate the new width/height given the padding and the input size
+        val wh = input_size_raw + (padding * 2.to[Int])
+
+        // Calculate the new kernel size given the dilation
+        val kernel_size = (dilation * kernel_size_raw) + dilation - 1.to[Int]
+
+
         Foreach(0 until wh by stride, 0 until wh by stride, 0 until num_filters) { (r,c,m) =>
-          weights_sram load weights_dram(m, 0.to[Int]::depth, 0.to[Int]::kernel_size, 0.to[Int]::kernel_size)
+          weights_sram load weights_dram(m, 0.to[Int]::depth*kernel_size_raw*kernel_size_raw)
           val tmp = Reduce(Reg[T])(0 until depth) { d =>
             lb load input(d, r, 0.to[Int] :: (wh - 2.to[Int] * padding) par LB_PAR)
             Pipe {
@@ -236,7 +269,8 @@ import spatial.dsl._
             }
             // Dilates the kernel
             Foreach(0 until kernel_size, 0 until kernel_size) { (i, j) =>
-              weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(d, i/dilation, j/dilation), 0.to[T])
+              val index = d*kernel_size_raw*kernel_size_raw + i*kernel_size + j
+              weights(i, j) = mux(i % 2.to[Int] == 0.to[Int] || j % 2.to[Int] == 0.to[Int], weights_sram(index), 0.to[T])
             }
             // Loads a 0 into the shift register to account for padding
             Foreach(0 until kernel_size) { i => sr1(i, *) <<= mux(c < padding || c > (wh - (2.to[Int] * padding)), 0.to[T], lb(i, c-padding)) }
@@ -253,16 +287,16 @@ import spatial.dsl._
         // TODO: When running sequential here, does that also make the conv functions run sequentially,
         // or could we still paralellize within those functions
         bias load b1_1
-        conv1(input, input_size_1, w1_1_2d, num_filters_1,
-          bias, stride_1_1, pad_1, dilation_1, kernel_size_1)
+        conv1(input, raw_input_size_1, w1_1_2d, num_filters_1,
+          bias, stride_1_1, pad_1, dilation_1, raw_kernel_size_1)
 
         // TODO: How do we transfer from one DRAM to another
         // Saved into output_buffer but we want to move everything into output
         // so that output can be passed into the next layer.
 
-        bias load b1_2
-        conv_else(output_buffer, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
-          bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
+        //bias load b1_2
+        //conv_else(output_buffer, raw_input_size_1, depth_1_2, w1_2_2d, num_filters_1,
+          //bias, stride_1_2, pad_1, dilation_1, raw_kernel_size_1)
 
         //bias load b1_2
         //conv_else(input, input_size_1, depth_1_2, w1_2_2d, num_filters_1,
@@ -273,8 +307,7 @@ import spatial.dsl._
         //bias, stride_1_2, pad_1, dilation_1, kernel_size_1)
       }
     }
-    printTensor3(getTensor3(output))
-     */
+    printTensor3(getTensor3(output_buffer))
   }
 }
 

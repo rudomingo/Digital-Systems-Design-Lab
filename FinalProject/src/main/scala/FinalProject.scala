@@ -62,6 +62,10 @@ import spatial.dsl._
     setMem(w1_1_2d, w1_1_csv)
     setMem(b1_1, b1_1_csv)
 
+    print(w1_1_csv)
+    print(getTensor4(w1_1_2d))
+
+    /*
     val w1_2_2d = DRAM[T](num_filters_1, depth_1_2, raw_kernel_size_1, raw_kernel_size_1)
     val b1_2 = DRAM[T](num_filters_1)
     setMem(w1_2_2d, w1_2_csv)
@@ -75,6 +79,7 @@ import spatial.dsl._
     val w2_2_csv = loadCSV2D[T]("conv2_2_weights.csv", ",")
     val b2_2_csv = loadCSV1D[T]("conv2_2_bias.csv", ",")
     val norm_2 = loadCSV1D[T]("conv2_2norm_mean_variance.csv", ",")
+     */
 
     /*
     val w3_1_data = loadCSV2D[T]("XXXXX.csv", ",")
@@ -134,6 +139,7 @@ import spatial.dsl._
     val output = DRAM[T](64.to[Int], WH_MAX, WH_MAX)
 
 
+    /*
     Accel {
 
       //val depth = LUT[T](23)(1.to[T], 64.to[T], 64.to[T], 128.to[T], 128.to[T], 256.to[T],
@@ -263,6 +269,7 @@ import spatial.dsl._
       }
     }
     printTensor3(getTensor3(output))
+     */
   }
 }
 

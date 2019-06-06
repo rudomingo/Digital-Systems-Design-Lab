@@ -124,8 +124,8 @@ import spatial.dsl._
     // Define the output of the previous convolutional layer and the input to the next
     val input = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
     setMem(input, test_image)
-    val output_buffer = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
-    val output = DRAM[T](NUM_FILTERS_MAX, WH_MAX, WH_MAX)
+    val output_buffer = DRAM[T](64.to[Int], WH_MAX, WH_MAX)
+    val output = DRAM[T](64.to[Int], WH_MAX, WH_MAX)
 
     Accel {
 

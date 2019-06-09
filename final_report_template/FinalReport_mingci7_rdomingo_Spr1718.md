@@ -14,9 +14,8 @@ Machine Learning is an evolving field that has impacted many sectors of society,
 (Links to the CNN framework and model we based our implementation on:
 Paper: https://arxiv.org/pdf/1603.08511.pdf
 GitHub repo: https://github.com/richzhang/colorization)
-![system_diagram](./img/colorization_CNN_model.png)
 ``
-
+![system_diagram](./img/colorization_CNN_model.png)
 ## Software Simulation 
 ```
 // Add an overview of your software simulation here.

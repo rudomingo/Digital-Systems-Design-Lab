@@ -26,6 +26,7 @@ Ron Domingo (rdomingo) and Michael Lu (mingci7)
 // If you want to attach an image of your system diagram, you can leave the image in the 
 // img folder, and add it like this: 
 // ![system_diagram](./img/system_diagram.jpg)
+![system_diagram](./img/hardware_design.png)
 
 ```
 

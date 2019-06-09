@@ -1,0 +1,115 @@
+Hello, world!
+This is the filter number: 0
+This is the filter number: 1
+This is the filter number: 2
+This is the filter number: 3
+This is the filter number: 4
+This is the filter number: 5
+This is the filter number: 6
+This is the filter number: 7
+This is the filter number: 8
+This is the filter number: 9
+This is the filter number: 10
+This is the filter number: 11
+This is the filter number: 12
+This is the filter number: 13
+This is the filter number: 14
+This is the filter number: 15
+This is the filter number: 16
+This is the filter number: 17
+This is the filter number: 18
+This is the filter number: 19
+This is the filter number: 20
+This is the filter number: 21
+This is the filter number: 22
+This is the filter number: 23
+This is the filter number: 24
+This is the filter number: 25
+This is the filter number: 26
+This is the filter number: 27
+This is the filter number: 28
+This is the filter number: 29
+This is the filter number: 30
+This is the filter number: 31
+This is the filter number: 32
+This is the filter number: 33
+This is the filter number: 34
+This is the filter number: 35
+This is the filter number: 36
+This is the filter number: 37
+This is the filter number: 38
+This is the filter number: 39
+This is the filter number: 40
+This is the filter number: 41
+This is the filter number: 42
+This is the filter number: 43
+This is the filter number: 44
+This is the filter number: 45
+This is the filter number: 46
+This is the filter number: 47
+This is the filter number: 48
+This is the filter number: 49
+This is the filter number: 50
+This is the filter number: 51
+This is the filter number: 52
+This is the filter number: 53
+This is the filter number: 54
+This is the filter number: 55
+This is the filter number: 56
+This is the filter number: 57
+This is the filter number: 58
+This is the filter number: 59
+This is the filter number: 60
+This is the filter number: 61
+This is the filter number: 62
+This is the filter number: 63
+Done with first block of first layer
+(64, 224, 224)
+[[[ 0.15731  0.15731  0.15731 ...,  0.15731  0.15731  0.15731]
+  [ 0.15731  0.15731  0.15731 ...,  0.15731  0.15731  0.15731]
+  [ 0.15731  0.15731  0.15731 ...,  0.15731  0.15731  0.15731]
+  ..., 
+  [ 0.15731  0.15731  0.15731 ...,  0.15609  0.15609  0.15731]
+  [ 0.15731  0.15731  0.15731 ...,  0.15609  0.15609  0.15731]
+  [ 0.15731  0.15731  0.15731 ...,  0.15731  0.15731  0.15731]]
+
+ [[ 0.00402  0.00402  0.00402 ...,  0.00402  0.00402  0.00402]
+  [ 0.00402  0.00402  0.00402 ...,  0.00402  0.00402  0.00402]
+  [ 0.00402  0.00402  0.00402 ...,  0.00402  0.00402  0.00402]
+  ..., 
+  [ 0.00402  0.00402  0.00402 ...,  0.       0.       0.00402]
+  [ 0.00402  0.00402  0.00402 ...,  0.       0.       0.00402]
+  [ 0.00402  0.00402  0.00402 ...,  0.00402  0.00402  0.00402]]
+
+ [[ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  ..., 
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]]
+
+ ..., 
+ [[ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  ..., 
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]]
+
+ [[ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]
+  ..., 
+  [ 0.       0.       0.      ...,  0.14469  0.14469  0.     ]
+  [ 0.       0.       0.      ...,  0.14469  0.14469  0.     ]
+  [ 0.       0.       0.      ...,  0.       0.       0.     ]]
+
+ [[ 0.20698  0.20698  0.20698 ...,  0.20698  0.20698  0.20698]
+  [ 0.20698  0.20698  0.20698 ...,  0.20698  0.20698  0.20698]
+  [ 0.20698  0.20698  0.20698 ...,  0.20698  0.20698  0.20698]
+  ..., 
+  [ 0.20698  0.20698  0.20698 ...,  0.2602   0.2602   0.20698]
+  [ 0.20698  0.20698  0.20698 ...,  0.2602   0.2602   0.20698]
+  [ 0.20698  0.20698  0.20698 ...,  0.20698  0.20698  0.20698]]]

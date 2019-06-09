@@ -21,12 +21,12 @@ Ron Domingo (rdomingo) and Michael Lu (mingci7)
 ```
 
 ## Hardware Implementation
+![system_diagram](./img/hardware_design.png)
 ```
 // Add an overview of your haredware implementation here.
 // If you want to attach an image of your system diagram, you can leave the image in the 
 // img folder, and add it like this: 
 // ![system_diagram](./img/system_diagram.jpg)
-![system_diagram](./img/hardware_design.png)
 
 ```
 

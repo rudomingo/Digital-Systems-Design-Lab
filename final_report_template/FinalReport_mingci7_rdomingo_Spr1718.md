@@ -23,6 +23,7 @@ Paper:
 ```
 
 ## Hardware Implementation
+![system_diagram](./img/hardware_design.png)
 ```
 // Add an overview of your haredware implementation here.
 // If you want to attach an image of your system diagram, you can leave the image in the 

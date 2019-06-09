@@ -1,5 +1,5 @@
 # EE109 Digital System Lab Final Report
-STUDENT_NAME_1, STUDENT_NAME_2
+Ron Domingo (rdomingo) and Michael Lu (mingci7)
 
 ## Table of Contents
 - Application Overview
